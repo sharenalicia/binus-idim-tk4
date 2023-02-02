@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
 
-  body {
+body {
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
@@ -191,3 +191,87 @@ form{
 		width: 400px;
 	}
 }
+
+.dashboard {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-gap: 0;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 80px auto;
+}
+
+.menu {
+    grid-area: menu;
+    padding-bottom: 3em;
+    overflow: auto;
+    background: #fff;
+    border-right: 1px solid #ede8f0;
+    border-radius: 10px 0 0 10px
+}
+.menu .user {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1em;
+}
+.menu .user .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.menu .user .user-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.menu .user figcaption {
+    margin: 0;
+    padding: 0 0 0 1em;
+    color: #333;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 100%;
+}
+.menu nav {
+    display: block;
+    padding: 0 4em;
+  }
+  .menu nav section {
+    display: block;
+    padding: 2.5em 0 0;
+  }
+  .menu nav h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color:#333;
+    font-weight: 200;
+  }
+  .menu nav ul {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .menu nav li {
+    display: block;
+    padding: 0;
+    margin: 0.75em 0 0;
+  }
+  .menu nav li a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgb(134, 134, 134);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1em;
+    transition: color 0.15s ease;
+  }
+  .menu nav li a i {
+    display: block;
+    margin-right: 1em;
+  }
