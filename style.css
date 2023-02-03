@@ -307,7 +307,7 @@ form{
     border-right: 1px solid #ede8f0;
     flex: 1 1 auto;
     background-color: #fff;
-    padding: 3em 3em 3em 3em;
+    padding: 3em 4em 1em 4em;
     border-radius: 0 10px 10px 0;
 }
 
@@ -354,7 +354,7 @@ form{
     padding: 3em 0 2em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 6em;
+    grid-gap: 3em;
 }
 
 .content-wrap .content-1 .box-1 {
@@ -407,7 +407,7 @@ form{
 
 .content-wrap .content-2 .box-2 {
     background: #fff;
-    height: 200px;
+    height: 230px;
     display: flex;
     align-items: center;
     justify-content: center;
