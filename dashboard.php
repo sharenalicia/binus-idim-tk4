@@ -1,7 +1,7 @@
 <?php
 include "koneksi.php";
 session_start();
-if (!isset($_SESSION['username'])){
+if (!isset($_SESSION['idpengguna'])){
     header('location:login.php');
 }
 ?>
@@ -78,7 +78,64 @@ if (!isset($_SESSION['username'])){
                     </ul>     
                 </section>
             </nav>
+            <div class="signout">
+                <input type="submit" class="button" value="Signout">
+            </div>
         </header>
+
+        <main class="content-wrap">
+            <header class="content-head">
+			    <h1>Dashboard</h1>
+
+                <div class="action">
+				<button>
+					Signout
+				</button>
+			</div>
+		    </header>
+            <div class="content">
+                <section class="content-1">
+                    <div class="box-1">
+                        <div class="box-icon1">
+                            <h2> Jumlah Penjualan </h2>
+                        </div>
+
+                        <div class="box-content1">
+                            <h2> angka db </h2>
+                        </div>
+                    </div>
+                    <div class="box-1">
+                        <div class="box-icon1">
+                            <h2> Jumlah Penjualan </h2>
+                        </div>
+
+                        <div class="box-content1">
+                            <h2> angka db </h2>
+                        </div>
+                    </div>
+                </section>
+                <section class="content-2">
+                    <div class="box-2">
+                        <div class="box-icon2">
+                            <h2> Jumlah Penjualan </h2>
+                        </div>
+
+                        <div class="box-content2">
+                            <h2> angka db </h2>
+                        </div>
+                    </div>
+                    <div class="box-2">
+                        <div class="box-icon2">
+                            <h2> Jumlah Penjualan </h2>
+                        </div>
+
+                        <div class="box-content2">
+                            <h2> angka db </h2>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
     </div>
 </body>
 

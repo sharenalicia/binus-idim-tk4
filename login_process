@@ -1,22 +1,22 @@
 <?php
     include "koneksi.php";
-    $username = $_POST['username'];
+    $idpengguna = $_POST['idpengguna'];
     $password = $_POST['password'];
 
-    if(empty($username)){
-        echo "<script>alert('Username belum diisi')</script>";
-        echo "<meta http-equiv='refresh' content='0 url=Login.php>";
+    if(empty($idpengguna)){
+        echo "<script>alert('Id Pengguna belum diisi')</script>";
+        echo "<meta http-equiv='refresh' content='0 url=login.php>";
     }else if (empty($password)){
         echo "<script>alert('Password belum diisi')</script>";
-        echo "<meta http-equiv='refresh' content='0 url=Login.php'>";
+        echo "<meta http-equiv='refresh' content='0 url=login.php'>";
     }else{
         session_start();
-        $login = mysqli_query($connect, "SELECT * FROM pengguna WHERE username ='$username' and pass='$password'");
+        $login = mysqli_query($connect, "SELECT * FROM pengguna WHERE idpengguna ='$idpengguna' and pass='$password'");
         if (mysqli_num_rows($login)> 0){
-            $_SESSION['username'] = $username;
+            $_SESSION['idpengguna'] = $idpengguna;
             header("location:index.php");
         }else{
-            echo "<script>alert('Username atau Password salah !')</script>";
+            echo "<script>alert('Id Pengguna atau Password salah !')</script>";
             echo "<meta http-equiv='refresh' content='0 url=Login.php'>";
         }
     }

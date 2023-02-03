@@ -20,8 +20,8 @@
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<h5>Username</h5>
-           		   		<input type="text" name="username" class="input">
+           		   		<h5>Id Pengguna</h5>
+           		   		<input type="text" name="idpengguna" class="input">
            		   </div>
            		</div>
            		<div class="input-div pass">
