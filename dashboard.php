@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "koneksidb.php";
 session_start();
 if (!isset($_SESSION['idpengguna'])){
     header('location:login.php');
