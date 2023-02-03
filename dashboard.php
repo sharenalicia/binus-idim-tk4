@@ -78,9 +78,6 @@ if (!isset($_SESSION['idpengguna'])){
                     </ul>     
                 </section>
             </nav>
-            <div class="signout">
-                <input type="submit" class="button" value="Signout">
-            </div>
         </header>
 
         <main class="content-wrap">
@@ -88,10 +85,10 @@ if (!isset($_SESSION['idpengguna'])){
 			    <h1>Dashboard</h1>
 
                 <div class="action">
-				<button>
-					Signout
-				</button>
-			</div>
+				    <button>
+					    Sign out
+				    </button>
+			    </div>
 		    </header>
             <div class="content">
                 <section class="content-1">
