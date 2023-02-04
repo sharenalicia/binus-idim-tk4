@@ -101,7 +101,7 @@ $result = mysqli_query($connect, $query);
                                     <th>Nama Barang</th>
                                     <th>Keterangan</th>
                                     <th>Satuan</th>
-                                    <th>Aksi</th>
+                                    <th>Pengaturan</th>
                                 </tr>
                                 <?php
                                 $no = 1;
