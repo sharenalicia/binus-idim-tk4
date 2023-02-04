@@ -108,15 +108,15 @@ $result2 = mysqli_query($connect, $query);
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Keterangan</td>
+                                            <td>Alamat</td>
                                             <td><input type="text" name="Alamat" value="<?php echo $d['Alamat']; ?>"></td>
                                         </tr>
                                         <tr>
-                                            <td>Satuan</td>
+                                            <td>No Hp</td>
                                             <td><input type="text" name="NoHp" value="<?php echo $d['NoHp']; ?>"></td>
                                         </tr>
                                         <tr>
-                                            <td>Id Pengguna</td>
+                                            <td>Id Penjualan</td>
                                             <td>
                                                 <select name="IdPenjualan">
                                                     <?php
