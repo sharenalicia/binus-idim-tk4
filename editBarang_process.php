@@ -4,7 +4,8 @@ $IdBarang = $_POST['IdBarang'];
 $NamaBarang = $_POST['NamaBarang'];
 $Keterangan = $_POST['Keterangan'];
 $Satuan = $_POST['Satuan'];
-$query = "UPDATE barang SET NamaBarang='$NamaBarang', Keterangan='$Keterangan', Satuan='$Satuan' WHERE IdBarang='$IdBarang'";
+$IdPengguna = $_POST['IdPengguna'];
+$query = "UPDATE barang SET NamaBarang='$NamaBarang', Keterangan='$Keterangan', Satuan='$Satuan', IdPengguna='$IdPengguna' WHERE IdBarang='$IdBarang'";
 $sql = mysqli_query($connect, $query);
 if ($sql) {
     header("location: dataBarang.php");
