@@ -43,7 +43,7 @@ $result = mysqli_query($connect, $query);
 
                     <ul>
                         <li>
-                            <a>
+                            <a href="dataPelanggan.php">
                                 <i class="fas fa-user"></i>
                                 Data Pelanggan
                             </a>

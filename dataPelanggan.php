@@ -1,10 +1,9 @@
+<!-- show data as table from mysql and make a html like dashboard.php -->
 <?php
-include 'koneksidb.php';
-$id = $_GET['IdBarang'];
-$query = "SELECT * FROM barang WHERE IdBarang='$id'";
+include "koneksidb.php";
+$query = "SELECT * FROM pelanggan";
 $result = mysqli_query($connect, $query);
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -85,53 +84,44 @@ $result = mysqli_query($connect, $query);
         <main class="content-wrap">
             <header class="content-head">
                 <h1>Dashboard</h1>
+                <div class="action">
+                    <button onclick="location.href = 'logout.php';">
+                        Sign out
+                    </button>
+                </div>
             </header>
             <div class="content">
-                <h2>Data Barang</h2>
+                <h2>Data Pelanggan</h2>
                 <section class="content-2">
                     <div class="box-2">
                         <div class="box-content2">
-                            <?php
-                            while ($d = mysqli_fetch_array($result)) {
-                            ?>
-                                <form method="post" action="editBarang_process.php">
-                                    <table>
-                                        <tr>
-                                            <td>Nama</td>
-                                            <td>
-                                                <input type="hidden" name="IdBarang" value="<?php echo $d['IdBarang']; ?>">
-                                                <input type="text" name="NamaBarang" value="<?php echo $d['NamaBarang']; ?>">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Keterangan</td>
-                                            <td><input type="text" name="Keterangan" value="<?php echo $d['Keterangan']; ?>"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Satuan</td>
-                                            <td><input type="text" name="Satuan" value="<?php echo $d['Satuan']; ?>"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Id Pengguna</td>
-                                            <td>
-                                                <select name="IdPengguna">
-                                                    <?php
-                                                    $no = 1;
-                                                    while ($row = mysqli_fetch_array($result)) {
-                                                        echo "<option value='" . $row['IdPengguna'] . "'>" . $row['IdPengguna'] . "</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="submit" value="SIMPAN"></td>
-                                        </tr>
-                                    </table>
-                                </form>
-                            <?php
-                            }
-                            ?>
+                            <table class="content-table">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Id Pelanggan</th>
+                                    <th>Nama Pelanggan</th>
+                                    <th>Alamat</th>
+                                    <th>No Hp</th>
+                                </tr>
+                                <?php
+                                $no = 1;
+                                while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $row['IdPelanggan']; ?></td>
+                                        <td><?php echo $row['NamaPelanggan']; ?></td>
+                                        <td><?php echo $row['Alamat']; ?></td>
+                                        <td><?php echo $row['NoHp']; ?></td>
+                                        <td>
+                                            <a class="edit" href="editPelanggan.php?IdPelanggan=<?php echo $row['IdPelanggan']; ?>">Edit</a>
+                                            <a class="delete" href="hapusPelanggan.php?IdPelanggan=<?php echo $row['IdPelanggan']; ?>">Hapus</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                            </table>
                         </div>
                     </div>
                 </section>

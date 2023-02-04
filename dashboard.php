@@ -43,7 +43,7 @@ if (!isset($_SESSION['idpengguna'])) {
 
                     <ul>
                         <li>
-                            <a>
+                            <a href="dataPelanggan.php">
                                 <i class="fas fa-user"></i>
                                 Data Pelanggan
                             </a>
