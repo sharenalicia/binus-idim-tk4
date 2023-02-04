@@ -1,14 +1,15 @@
 <?php
-include "koneksidb.php";
-session_start();
-if (!isset($_SESSION['idpengguna'])) {
-    header('location:login.php');
-}
+include 'koneksidb.php';
+$id = $_GET['IdBarang'];
+$query = "SELECT * FROM barang WHERE IdBarang='$id'";
+$result = mysqli_query($connect, $query);
 ?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Dashboard</title>
+    <title onclick="location.href = 'dashboard.php';">Dashboard</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -84,48 +85,41 @@ if (!isset($_SESSION['idpengguna'])) {
         <main class="content-wrap">
             <header class="content-head">
                 <h1>Dashboard</h1>
-                <div class="action">
-                    <button onclick="location.href = 'logout.php';">
-                        Sign out
-                    </button>
-                </div>
             </header>
             <div class="content">
-                <section class="content-1">
-                    <div class="box-1">
-                        <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                            </svg>
-                        </div>
-
-                        <div class="box-content1">
-                            <div class="big">
-                                <span id="IdPenjualan">Barang Terjual</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                            </svg>
-                        </div>
-
-                        <div class="box-content1">
-                            <span class="big">angkadb</span>
-                            Barang Terjual
-                        </div>
-                    </div>
-                </section>
+                <h2>Data Barang</h2>
                 <section class="content-2">
                     <div class="box-2">
-                        <div class="box-icon2">
-                            <h2> Laporan Laba Rugi </h2>
-                        </div>
-
                         <div class="box-content2">
-                            <h2> angka db </h2>
+                            <?php
+                            while ($d = mysqli_fetch_array($result)) {
+                            ?>
+                                <form method="post" action="editBarang_process.php">
+                                    <table>
+                                        <tr>
+                                            <td>Nama</td>
+                                            <td>
+                                                <input type="hidden" name="IdBarang" value="<?php echo $d['IdBarang']; ?>">
+                                                <input type="text" name="NamaBarang" value="<?php echo $d['NamaBarang']; ?>">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Keterangan</td>
+                                            <td><input type="text" name="Keterangan" value="<?php echo $d['Keterangan']; ?>"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Satuan</td>
+                                            <td><input type="text" name="Satuan" value="<?php echo $d['Satuan']; ?>"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="submit" value="SIMPAN"></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </section>

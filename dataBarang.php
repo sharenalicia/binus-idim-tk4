@@ -1,14 +1,14 @@
+<!-- show data as table from mysql and make a html like dashboard.php -->
 <?php
 include "koneksidb.php";
-session_start();
-if (!isset($_SESSION['idpengguna'])) {
-    header('location:login.php');
-}
+$query = "SELECT * FROM barang";
+$result = mysqli_query($connect, $query);
 ?>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Dashboard</title>
+    <title onclick="location.href = 'dashboard.php';">Dashboard</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -91,44 +91,42 @@ if (!isset($_SESSION['idpengguna'])) {
                 </div>
             </header>
             <div class="content">
-                <section class="content-1">
-                    <div class="box-1">
-                        <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                            </svg>
-                        </div>
-
-                        <div class="box-content1">
-                            <div class="big">
-                                <span id="IdPenjualan">Barang Terjual</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                            </svg>
-                        </div>
-
-                        <div class="box-content1">
-                            <span class="big">angkadb</span>
-                            Barang Terjual
-                        </div>
-                    </div>
-                </section>
+                <h2>Data Barang</h2>
                 <section class="content-2">
                     <div class="box-2">
-                        <div class="box-icon2">
-                            <h2> Laporan Laba Rugi </h2>
-                        </div>
-
                         <div class="box-content2">
-                            <h2> angka db </h2>
+                            <table class="content-table">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Id Barang</th>
+                                    <th>Nama Barang</th>
+                                    <th>Keterangan</th>
+                                    <th>Satuan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                <?php
+                                $no = 1;
+                                while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $row['IdBarang']; ?></td>
+                                        <td><?php echo $row['NamaBarang']; ?></td>
+                                        <td><?php echo $row['Keterangan']; ?></td>
+                                        <td><?php echo $row['Satuan']; ?></td>
+                                        <td>
+                                            <a class="edit" href="editBarang.php?IdBarang=<?php echo $row['IdBarang']; ?>">Edit</a>
+                                            <a class="delete" href="hapusBarang.php?IdBarang=<?php echo $row['IdBarang']; ?>">Hapus</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                            </table>
                         </div>
                     </div>
                 </section>
+                <a href="tambahBarang.php">Tambah Data</a>
             </div>
         </main>
     </div>
