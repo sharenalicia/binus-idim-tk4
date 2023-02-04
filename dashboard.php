@@ -88,7 +88,7 @@ if (!isset($_SESSION['idpengguna'])) {
 
                 <div class="action">
                     <button>
-                        Sign out
+                        <a href="logout.php">Sign out</a>
                     </button>
                 </div>
             </header>
@@ -102,8 +102,9 @@ if (!isset($_SESSION['idpengguna'])) {
                         </div>
 
                         <div class="box-content1">
-                            <span class="big">angkadb</span>
-                            Barang Terjual
+                            <div class="big">
+                                <span id="IdPenjualan">Barang Terjual</span>
+                            </div>
                         </div>
                     </div>
                     <div class="box-1">

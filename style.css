@@ -32,13 +32,17 @@ body {
 
 .login_left img {
   position: relative;
-  margin: 40px;
+  align-items: center;
+  justify-content: center;
+  height: 550px;
+  width: auto;
+  padding: 3em 4em 1em 6em;
 }
 
 .login_right {
   flex: 1 1 auto;
   background-color: #fff;
-  padding: 30px;
+  padding: 3em 4em 1em 5em;
   border-radius: 0 10px 10px 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -50,17 +54,18 @@ form {
 }
 
 .login_right h2 {
-  padding-top: 25px;
+  display: block;
   color: #333;
-  font-size: 3.5rem;
+  font-size: 60px;
   position: relative;
+  padding: 0 1em 0 1.2em;
 }
 
 .login_right .input-div {
   position: relative;
   display: grid;
   grid-template-columns: 7% 93%;
-  margin: 25px 0;
+  margin: 30px 0;
   padding: 5px 0;
   border-bottom: 2px solid #d9d9d9;
 }
@@ -344,10 +349,24 @@ form {
   transition: 0.5s;
 }
 
+.content-wrap .content-head .action button a {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+
 .content-wrap .content-head .action button:hover {
   background-color: #fff;
   color: #6bc974;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
   border: 2px solid #6bc974;
+}
+
+.content-wrap .content-head .action button a:hover {
+  color: #6bc974;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
 }
 
 .content-wrap .content-1 {
