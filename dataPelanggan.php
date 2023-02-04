@@ -93,8 +93,8 @@ $result = mysqli_query($connect, $query);
 
             <div class="container">
                 <h2>Data Pelanggan</h2>
-                    <div class="box-2">
-                            <table class="content-table">
+                    <div class="box-3">
+                            <table class="content-table2">
                                 <tr>
                                     <th>No</th>
                                     <th>Id Pelanggan</th>
@@ -114,8 +114,8 @@ $result = mysqli_query($connect, $query);
                                         <td><?php echo $row['Alamat']; ?></td>
                                         <td><?php echo $row['NoHp']; ?></td>
                                         <td>
-                                            <a class="edit" href="editPelanggan.php?IdPelanggan=<?php echo $row['IdPelanggan']; ?>&IdPenjualan=<?php echo $row['IdPenjualan']; ?>">Edit</a>
-                                            <a class="delete" href="hapusPelanggan.php?IdPelanggan=<?php echo $row['IdPelanggan']; ?>">Hapus</a>
+                                            <a class="edit2" href="editPelanggan.php?IdPelanggan=<?php echo $row['IdPelanggan']; ?>&IdPenjualan=<?php echo $row['IdPenjualan']; ?>">Edit</a>
+                                            <a class="delete2" href="hapusPelanggan.php?IdPelanggan=<?php echo $row['IdPelanggan']; ?>">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php

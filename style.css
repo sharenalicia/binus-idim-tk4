@@ -451,13 +451,13 @@ form {
   color: #333;
   overflow: hidden;
   font-size: 1em;
-  border: 3px solid #6bc974;
   font-family: 'Poppins', sans-serif;
 }
 
-.content-table .box-2 {
+.content-table tbody {
   width: auto;
-  height: 150px;
+  height: auto;
+  border-radius: 10px;
   border: 3px solid #6bc974;
 }
 
@@ -472,11 +472,11 @@ form {
 .content-table th,
 .content-table td {
   position: relative;
-  padding: 0.5em 2.5em 0.5em 2.5em;
+  padding: 0.5em;
 }
 
 .edit {
-  padding: 3.01em;
+  padding: 0.5em;
   width: 40px;
   color: #6bc974;;
   background-size: cover;
@@ -484,8 +484,8 @@ form {
   cursor: pointer;
 }
 
-.delete{
-  padding: 2.3em;
+.delete {
+  padding: 0.5em;
   width: 40px;
   color: #6bc974;
   background-size: cover;
@@ -517,4 +517,54 @@ form {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   border: 2px solid #6bc974;
+}
+
+.content-table2 {
+  display: flex;
+  border-collapse: collapse;
+  width: auto;
+  border-radius: 10px;
+  color: #333;
+  overflow: hidden;
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.content-table2 tbody {
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #6bc974;
+}
+
+.content-table2 tr th{
+  width: auto;
+  background-color: #6bc974;
+  color: white;
+  text-align: center;
+  font-weight: bold; 
+}
+
+.content-table2 th,
+.content-table2 td {
+  position: relative;
+  padding: 0.75em;
+}
+
+.edit2 {
+  padding: 0.5em;
+  width: 40px;
+  color: #6bc974;;
+  background-size: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete2 {
+  padding: 0.5em;
+  width: 40px;
+  color: #6bc974;
+  background-size: cover;
+  border-radius: 5px;
+  cursor: pointer;
 }
