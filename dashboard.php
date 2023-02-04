@@ -1,11 +1,12 @@
 <?php
 include "koneksidb.php";
 session_start();
-if (!isset($_SESSION['idpengguna'])){
+if (!isset($_SESSION['idpengguna'])) {
     header('location:login.php');
 }
 ?>
 <html>
+
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,6 +14,7 @@ if (!isset($_SESSION['idpengguna'])){
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <div class="center">
         <header class="menu">
@@ -21,7 +23,7 @@ if (!isset($_SESSION['idpengguna'])){
                     <img src="img/avatar.jpg">
                 </div>
                 <figcaption>
-                    Profile    
+                    Profile
                 </figcaption>
             </figure>
             <nav>
@@ -32,10 +34,10 @@ if (!isset($_SESSION['idpengguna'])){
                         <li>
                             <a>
                                 <i class="fas fa-tag"></i>
-                                Data Barang    
+                                Data Barang
                             </a>
                         </li>
-                    </ul>   
+                    </ul>
                 </section>
                 <section class="penjualan">
                     <h3>Penjualan</h3>
@@ -44,7 +46,7 @@ if (!isset($_SESSION['idpengguna'])){
                         <li>
                             <a>
                                 <i class="fas fa-user"></i>
-                                Data Pelanggan    
+                                Data Pelanggan
                             </a>
                         </li>
                     </ul>
@@ -52,10 +54,10 @@ if (!isset($_SESSION['idpengguna'])){
                         <li>
                             <a>
                                 <i class="fas fa-cash-register"></i>
-                                Data Penjualan    
+                                Data Penjualan
                             </a>
                         </li>
-                    </ul>     
+                    </ul>
                 </section>
                 <section class="penjualan">
                     <h3>Pembelian</h3>
@@ -64,7 +66,7 @@ if (!isset($_SESSION['idpengguna'])){
                         <li>
                             <a>
                                 <i class="fas fa-store"></i>
-                                Data Supplier    
+                                Data Supplier
                             </a>
                         </li>
                     </ul>
@@ -72,44 +74,48 @@ if (!isset($_SESSION['idpengguna'])){
                         <li>
                             <a>
                                 <i class="fas fa-receipt"></i>
-                                Data Pembelian    
+                                Data Pembelian
                             </a>
                         </li>
-                    </ul>     
+                    </ul>
                 </section>
             </nav>
         </header>
 
         <main class="content-wrap">
             <header class="content-head">
-			    <h1>Dashboard</h1>
+                <h1>Dashboard</h1>
 
                 <div class="action">
-				    <button>
-					    Sign out
-				    </button>
-			    </div>
-		    </header>
+                    <button>
+                        Sign out
+                    </button>
+                </div>
+            </header>
             <div class="content">
                 <section class="content-1">
                     <div class="box-1">
                         <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512"><path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg>    
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
+                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
+                            </svg>
                         </div>
 
                         <div class="box-content1">
                             <span class="big">angkadb</span>
-						    Barang Terjual
+                            Barang Terjual
                         </div>
                     </div>
                     <div class="box-1">
                         <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512"><path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg>    
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
+                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
+                            </svg>
                         </div>
 
                         <div class="box-content1">
                             <span class="big">angkadb</span>
-						    Barang Terjual
+                            Barang Terjual
                         </div>
                     </div>
                 </section>
