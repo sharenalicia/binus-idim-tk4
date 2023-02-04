@@ -11,10 +11,10 @@
         echo "<meta http-equiv='refresh' content='0 url=login.php'>";
     }else{
         session_start();
-        $login = mysqli_query($connect, "SELECT * FROM pengguna WHERE IdPengguna ='$idpengguna' and pass ='$password'");
+        $login = mysqli_query($connect, "SELECT * FROM pengguna WHERE IdPengguna ='$idpengguna' and Password ='$password'");
         if (mysqli_num_rows($login)> 0){
             $_SESSION['idpengguna'] = $idpengguna;
-            header("location:index.php");
+            header("dashboard.php");
         }else{
             echo "<script>alert('Id Pengguna atau Password salah !')</script>";
             echo "<meta http-equiv='refresh' content='0 url=Login.php'>";
