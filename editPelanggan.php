@@ -1,11 +1,11 @@
 <?php
 include 'koneksidb.php';
-$id = $_GET['IdBarang'];
-$IdPengguna = $_GET['IdPengguna'];
-$query = "SELECT * FROM barang WHERE IdBarang='$id'";
+$id = $_GET['IdPelanggan'];
+$IdPenjualan = $_GET['IdPenjualan'];
+$query = "SELECT * FROM pelanggan WHERE IdPelanggan='$id'";
 $result = mysqli_query($connect, $query);
 
-$query = "SELECT * FROM pengguna";
+$query = "SELECT * FROM penjualan";
 $result2 = mysqli_query($connect, $query);
 ?>
 
@@ -91,41 +91,41 @@ $result2 = mysqli_query($connect, $query);
                 <h1>Dashboard</h1>
             </header>
             <div class="content">
-                <h2>Data Barang</h2>
+                <h2>Data Pelanggan</h2>
                 <section class="content-2">
                     <div class="box-2">
                         <div class="box-content2">
                             <?php
                             while ($d = mysqli_fetch_array($result)) {
                             ?>
-                                <form method="post" action="editBarang_process.php">
+                                <form method="post" action="editPelanggan_process.php">
                                     <table>
                                         <tr>
                                             <td>Nama</td>
                                             <td>
-                                                <input type="hidden" name="IdBarang" value="<?php echo $d['IdBarang']; ?>">
-                                                <input type="text" name="NamaBarang" value="<?php echo $d['NamaBarang']; ?>">
+                                                <input type="hidden" name="IdPelanggan" value="<?php echo $d['IdPelanggan']; ?>">
+                                                <input type="text" name="NamaPelanggan" value="<?php echo $d['NamaPelanggan']; ?>">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Keterangan</td>
-                                            <td><input type="text" name="Keterangan" value="<?php echo $d['Keterangan']; ?>"></td>
+                                            <td><input type="text" name="Alamat" value="<?php echo $d['Alamat']; ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>Satuan</td>
-                                            <td><input type="text" name="Satuan" value="<?php echo $d['Satuan']; ?>"></td>
+                                            <td><input type="text" name="NoHp" value="<?php echo $d['NoHp']; ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>Id Pengguna</td>
                                             <td>
-                                                <select name="IdPengguna">
+                                                <select name="IdPenjualan">
                                                     <?php
                                                     $no = 1;
                                                     while ($row = mysqli_fetch_array($result2)) {
-                                                        if ($row['IdPengguna'] == $IdPengguna) {
-                                                            echo "<option selected value='" . $row['IdPengguna'] . "'>" . $row['IdPengguna'] . "</option>";
+                                                        if ($row['IdPenjualan'] == $IdPenjualan) {
+                                                            echo "<option selected value='" . $row['IdPenjualan'] . "'>" . $row['IdPenjualan'] . "</option>";
                                                         } else
-                                                            echo "<option value='" . $row['IdPengguna'] . "'>" . $row['IdPengguna'] . "</option>";
+                                                            echo "<option value='" . $row['IdPenjualan'] . "'>" . $row['IdPenjualan'] . "</option>";
                                                     }
                                                     ?>
                                                 </select>
