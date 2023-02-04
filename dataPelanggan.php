@@ -90,11 +90,10 @@ $result = mysqli_query($connect, $query);
                     </button>
                 </div>
             </header>
-            <div class="content">
+
+            <div class="container">
                 <h2>Data Pelanggan</h2>
-                <section class="content-2">
                     <div class="box-2">
-                        <div class="box-content2">
                             <table class="content-table">
                                 <tr>
                                     <th>No</th>
@@ -102,6 +101,7 @@ $result = mysqli_query($connect, $query);
                                     <th>Nama Pelanggan</th>
                                     <th>Alamat</th>
                                     <th>No Hp</th>
+                                    <th>Pengaturan</th>
                                 </tr>
                                 <?php
                                 $no = 1;
@@ -122,9 +122,7 @@ $result = mysqli_query($connect, $query);
                                 }
                                 ?>
                             </table>
-                        </div>
                     </div>
-                </section>
             </div>
         </main>
     </div>
