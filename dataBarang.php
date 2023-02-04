@@ -123,7 +123,13 @@ $result = mysqli_query($connect, $query);
                                 ?>
                             </table>
                     </div>
-                <a href="tambahBarang.php">Tambah Data</a>
+
+                    <div class="action2">
+                        <button onclick="location.href = 'tambahBarang.php';">
+                            +Tambah Barang
+                        </button>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
