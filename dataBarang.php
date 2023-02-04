@@ -90,11 +90,10 @@ $result = mysqli_query($connect, $query);
                     </button>
                 </div>
             </header>
-            <div class="content">
+        
+            <div class="container">
                 <h2>Data Barang</h2>
-                <section class="content-2">
                     <div class="box-2">
-                        <div class="box-content2">
                             <table class="content-table">
                                 <tr>
                                     <th>No</th>
@@ -123,9 +122,7 @@ $result = mysqli_query($connect, $query);
                                 }
                                 ?>
                             </table>
-                        </div>
                     </div>
-                </section>
                 <a href="tambahBarang.php">Tambah Data</a>
             </div>
         </main>
