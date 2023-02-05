@@ -3,8 +3,6 @@ include 'koneksidb.php';
 $query = "SELECT * FROM penjualan";
 $result = mysqli_query($connect, $query);
 ?>
-
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -96,12 +94,12 @@ $result = mysqli_query($connect, $query);
                                         <td>Id Penjualan</td>
                                         <td>
                                             <input type="text" name="IdPenjualan" class="kolom">
-                                            </td>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Id Barang</td>
                                         <td>
-                                        <select name="IdBarang" class="kolom">
+                                            <select name="IdBarang" class="kolom">
                                                 <?php
                                                 $no = 1;
                                                 while ($row = mysqli_fetch_array($result)) {

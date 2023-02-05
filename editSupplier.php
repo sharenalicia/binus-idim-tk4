@@ -8,8 +8,6 @@ $result = mysqli_query($connect, $query);
 $query = "SELECT * FROM pembelian";
 $result2 = mysqli_query($connect, $query);
 ?>
-
-<!DOCTYPE html>
 <html>
 
 <head>
