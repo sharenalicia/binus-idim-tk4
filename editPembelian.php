@@ -2,13 +2,16 @@
 include 'koneksidb.php';
 session_start();
 $nama = $_SESSION['nama'];
-$id = $_GET['IdBarang'];
+$id = $_GET['IdPembelian'];
 $IdPengguna = $_GET['IdPengguna'];
-$query = "SELECT * FROM barang WHERE IdBarang='$id'";
+$query = "SELECT * FROM pembelian WHERE IdPembelian='$id'";
 $result = mysqli_query($connect, $query);
 
 $query = "SELECT * FROM pengguna";
 $result2 = mysqli_query($connect, $query);
+
+$query = "SELECT * FROM barang";
+$result3 = mysqli_query($connect, $query);
 ?>
 <html>
 
@@ -91,32 +94,48 @@ $result2 = mysqli_query($connect, $query);
                 <h1>Dashboard</h1>
             </header>
             <div class="content-3">
-                <h2>Edit Data Barang</h2>
+                <h2>Edit Data Pembelian</h2>
                 <section class="input">
                     <div class="box-input">
                         <div class="box2">
                             <?php
                             while ($d = mysqli_fetch_array($result)) {
                             ?>
-                                <form method="post" action="editBarang_process.php">
+                                <form method="post" action="editPembelian_process.php">
                                     <table>
-                                        <tr>
-                                            <td>Nama</td>
+                                    <tr>
+                                            <td>Id Pembelian</td>
                                             <td>
-                                                <input type="hidden" name="IdBarang" value="<?php echo $d['IdBarang']; ?>">
-                                                <input type="text" name="NamaBarang" value="<?php echo $d['NamaBarang']; ?>" class="kolom">
+                                                <input type="hidden" name="IdPembelian" value="<?php echo $d['IdPembelian']; ?>">
+                                                <input type="text" name="IdPembelian" value="<?php echo $d['IdPembelian']; ?>" class="kolom" disabled>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Keterangan</td>
+                                            <td>Jumlah Pembelian</td>
                                             <td>
-                                                <input type="text" name="Keterangan" value="<?php echo $d['Keterangan']; ?>" class="kolom">
+                                                <input type="text" name="JumlahPembelian" value="<?php echo $d['JumlahPembelian']; ?>" class="kolom">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Satuan</td>
+                                            <td>Harga Beli</td>
                                             <td>
-                                                <input type="text" name="Satuan" value="<?php echo $d['Satuan']; ?>" class="kolom">
+                                                <input type="text" name="HargaBeli" value="<?php echo $d['HargaBeli']; ?>" class="kolom">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Id Barang</td>
+                                            <td>
+                                                <select name="IdBarang" class="kolom">
+                                                    <?php
+                                                    $no = 1;
+                                                    while ($row = mysqli_fetch_array($result3)) {
+                                                        if ($row['IdBarang'] == $IdBarang) {
+                                                            echo "<option selected value='" . $row['IdBarang'] . "'>" . $row['IdBarang'] . "</option>";
+                                                        } else
+                                                            echo "<option value='" . $row['IdBarang'] . "'>" . $row['IdBarang'] . "</option>";
+                                                    }
+                                                    ?>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
