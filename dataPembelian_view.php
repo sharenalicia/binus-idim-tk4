@@ -102,7 +102,6 @@ $result = mysqli_query($connect, $query);
                                     <th>Jumlah Pembelian</th>
                                     <th>Harga Beli</th>
                                     <th>Id Pengguna</th>
-                                    <th>Pengaturan</th>
                                 </tr>
                                 <?php
                                 $no = 1;
@@ -115,21 +114,11 @@ $result = mysqli_query($connect, $query);
                                         <td><?php echo $row['JumlahPembelian']; ?></td>
                                         <td><?php echo $row['HargaBeli']; ?></td>
                                         <td><?php echo $row['IdPengguna']; ?></td>
-                                        <td>
-                                            <a class="edit" href="editPembelian.php?IdPembelian=<?php echo $row['IdPembelian']; ?>&IdBarang=<?php echo $row['IdBarang']; ?>&IdPengguna=<?php echo $row['IdPengguna']; ?>">Edit</a>
-                                            <a class="delete" href="hapusPembelian.php?IdPembelian=<?php echo $row['IdPembelian']; ?>">Hapus</a>
-                                        </td>
                                     </tr>
                                 <?php
                                 }
                                 ?>
                             </table>
-                    </div>
-
-                    <div class="action2">
-                        <button onclick="location.href = 'tambahPembelian.php';">
-                            +Tambah Pembelian
-                        </button>
                     </div>
                 </div>
             </div>

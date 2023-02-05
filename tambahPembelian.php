@@ -2,8 +2,11 @@
 include 'koneksidb.php';
 session_start();
 $nama = $_SESSION['nama'];
-$query = "SELECT * FROM pengguna";
+$query = "SELECT * FROM pembelian";
 $result = mysqli_query($connect, $query);
+
+$query = "SELECT * FROM barang";
+$result2 = mysqli_query($connect, $query);
 ?>
 <html>
 
@@ -86,34 +89,28 @@ $result = mysqli_query($connect, $query);
                 <h1>Dashboard</h1>
             </header>
             <div class="content-3">
-                <h2>Tambah Barang</h2>
+                <h2>Tambah Pembelian</h2>
                 <section class="input">
                     <div class="box-input">
                         <div class="box2">
-                            <form method="post" action="tambahBarang_process.php">
+                            <form method="post" action="tambahPembelian_process.php">
                                 <table>
                                     <tr>
-                                        <td>Id Barang</td>
+                                        <td>Id Pembelian</td>
                                         <td>
-                                            <input type="text" name="IdBarang" class="kolom">
+                                            <input type="text" name="IdPembelian" class="kolom">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Nama</td>
+                                        <td>Jumlah Pembelian</td>
                                         <td>
-                                            <input type="text" name="NamaBarang" class="kolom">
+                                            <input type="text" name="JumlahPembelian" class="kolom">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Keterangan</td>
+                                        <td>Harga Beli</td>
                                         <td>
-                                            <input type="text" name="Keterangan" class="kolom">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Satuan</td>
-                                        <td>
-                                            <input type="text" name="Satuan" class="kolom">
+                                            <input type="text" name="HargaBeli" class="kolom">
                                         </td>
                                     </tr>
                                     <tr>
@@ -124,6 +121,19 @@ $result = mysqli_query($connect, $query);
                                                 $no = 1;
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     echo "<option value='" . $row['IdPengguna'] . "'>" . $row['IdPengguna'] . "</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Id Barang</td>
+                                        <td>
+                                            <select name="IdBarang" class="kolom">
+                                                <?php
+                                                $no = 1;
+                                                while ($row = mysqli_fetch_array($result2)) {
+                                                    echo "<option value='" . $row['IdBarang'] . "'>" . $row['IdBarang'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
