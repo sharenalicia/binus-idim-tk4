@@ -14,7 +14,7 @@
     <body>
     <?php
         $IdPengguna = $_SESSION['IdPengguna'];
-        $query = mysqli_query($connect, "SELECT * FROM pengguna JOIN hakakses USING (IdAkses)");
+        $query = mysqli_query($connect, "SELECT * FROM pengguna JOIN hakakses WHERE IdPengguna = '$IdPengguna'");
         $p = mysqli_fetch_array($query);
         $Keterangan = $p['Keterangan'];
         if($Keterangan=='Admin'){
