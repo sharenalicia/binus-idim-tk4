@@ -1,11 +1,11 @@
 <?php
 include 'koneksidb.php';
-$id = $_GET['IdPelanggan'];
-$IdPenjualan = $_GET['IdPenjualan'];
-$query = "SELECT * FROM pelanggan WHERE IdPelanggan='$id'";
+$id = $_GET['IdSupplier'];
+$IdPembelian = $_GET['IdPembelian'];
+$query = "SELECT * FROM supplier WHERE IdSupplier='$id'";
 $result = mysqli_query($connect, $query);
 
-$query = "SELECT * FROM penjualan";
+$query = "SELECT * FROM pembelian";
 $result2 = mysqli_query($connect, $query);
 ?>
 
@@ -90,20 +90,20 @@ $result2 = mysqli_query($connect, $query);
                 <h1>Dashboard</h1>
             </header>
             <div class="content-3">
-                <h2>Edit Data Pelanggan</h2>
+                <h2>Edit Data Supplier</h2>
                 <section class="input">
                     <div class="box-input">
                         <div class="box2">
                             <?php
                             while ($d = mysqli_fetch_array($result)) {
                             ?>
-                                <form method="post" action="editPelanggan_process.php">
+                                <form method="post" action="editSupplier_process.php">
                                     <table>
                                         <tr>
                                             <td>Nama</td>
                                             <td>
-                                                <input type="hidden" name="IdPelanggan" value="<?php echo $d['IdPelanggan']; ?>">
-                                                <input type="text" name="NamaPelanggan" value="<?php echo $d['NamaPelanggan']; ?>" class="kolom">
+                                                <input type="hidden" name="IdSupplier" value="<?php echo $d['IdSupplier']; ?>">
+                                                <input type="text" name="NamaSupplier" value="<?php echo $d['NamaSupplier']; ?>" class="kolom">
                                             </td>
                                         </tr>
                                         <tr>
@@ -119,16 +119,16 @@ $result2 = mysqli_query($connect, $query);
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Id Penjualan</td>
+                                            <td>Id Pembelian</td>
                                             <td>
-                                                <select name="IdPenjualan" class="kolom">
+                                                <select name="IdPembelian" class="kolom">
                                                     <?php
                                                     $no = 1;
                                                     while ($row = mysqli_fetch_array($result2)) {
-                                                        if ($row['IdPenjualan'] == $IdPenjualan) {
-                                                            echo "<option selected value='" . $row['IdPenjualan'] . "'>" . $row['IdPenjualan'] . "</option>";
+                                                        if ($row['IdPembelian'] == $IdPembelian) {
+                                                            echo "<option selected value='" . $row['IdPembelian'] . "'>" . $row['IdPembelian'] . "</option>";
                                                         } else
-                                                            echo "<option value='" . $row['IdPenjualan'] . "'>" . $row['IdPenjualan'] . "</option>";
+                                                            echo "<option value='" . $row['IdPembelian'] . "'>" . $row['IdPembelian'] . "</option>";
                                                     }
                                                     ?>
                                                 </select>

@@ -60,10 +60,9 @@ if (!isset($_SESSION['idpengguna'])) {
                 </section>
                 <section class="penjualan">
                     <h3>Pembelian</h3>
-
                     <ul>
                         <li>
-                            <a>
+                            <a href="dataSupplier.php">
                                 <i class="fas fa-store"></i>
                                 Daftar Supplier
                             </a>

@@ -68,7 +68,7 @@ $result2 = mysqli_query($connect, $query);
 
                     <ul>
                         <li>
-                            <a>
+                            <a href="dataSupplier.php">
                                 <i class="fas fa-store"></i>
                                 Daftar Supplier
                             </a>
