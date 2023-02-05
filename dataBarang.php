@@ -16,7 +16,7 @@ try {
     $value = $db_handle->runQuery($query);
     $no = 1;
 ?>
-    <html>
+<html>
 
     <head>
         <title onclick="location.href = 'dashboard.php';">Dashboard</title>

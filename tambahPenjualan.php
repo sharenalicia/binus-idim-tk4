@@ -1,5 +1,7 @@
 <?php
 include 'koneksidb.php';
+session_start();
+$nama = $_SESSION['nama'];
 $query = "SELECT * FROM penjualan";
 $result = mysqli_query($connect, $query);
 ?>
@@ -21,7 +23,7 @@ $result = mysqli_query($connect, $query);
                     <img src="img/avatar.jpg">
                 </div>
                 <figcaption>
-                    Profile
+                    <?php echo $nama; ?>
                 </figcaption>
             </figure>
             <nav>
