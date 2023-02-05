@@ -4,7 +4,6 @@ include "koneksidb.php";
 $query = "SELECT * FROM penjualan";
 $result = mysqli_query($connect, $query);
 ?>
-<!DOCTYPE html>
 <html>
 
 <head>

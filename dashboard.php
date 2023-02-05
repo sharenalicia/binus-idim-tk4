@@ -1,8 +1,26 @@
 <?php
-include "koneksidb.php";
+include_once("DBController.php");
+
 session_start();
-if (!isset($_SESSION['idpengguna'])) {
+$db_handle = new DBController();
+
+$idpengguna = $_SESSION['id'];
+if (!isset($idpengguna)) {
     header('location:login.php');
+}
+
+$query = "SELECT NamaPengguna FROM pengguna WHERE IdPengguna ='$idpengguna'";
+try {
+    $result = $db_handle->runQuery($query);
+    if (!empty($result)) {
+        foreach ($result as $key => $value) {
+            $namaPengguna =  $value['NamaPengguna'];
+            $_SESSION['nama'] = $namaPengguna;
+        }
+    }
+} catch (Exception $e) {
+    echo "<script>alert('Internal Server Error')</script>";
+    echo "<meta http-equiv='refresh' content='0; url=index.php'>";
 }
 ?>
 <html>
@@ -20,10 +38,12 @@ if (!isset($_SESSION['idpengguna'])) {
         <header class="menu">
             <figure class="user">
                 <div class="user-avatar">
-                    <img src="img/avatar.jpg">
+                    <a href="index.php">
+                        <img src="img/avatar.jpg">
+                    </a>
                 </div>
                 <figcaption>
-                    Profile
+                    <?php echo $namaPengguna; ?>
                 </figcaption>
             </figure>
             <nav>

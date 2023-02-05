@@ -3,8 +3,6 @@ include 'koneksidb.php';
 $query = "SELECT * FROM pengguna";
 $result = mysqli_query($connect, $query);
 ?>
-
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -96,7 +94,7 @@ $result = mysqli_query($connect, $query);
                                         <td>Id Barang</td>
                                         <td>
                                             <input type="text" name="IdBarang" class="kolom">
-                                            </td>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Nama</td>
