@@ -14,7 +14,8 @@
     <body>
     <?php
         $IdAkses = $_SESSION['IdAkses'];
-        $query = mysqli_query($connect, "SELECT IdPengguna, IdAkses, Keterangan FROM pengguna JOIN hakakses USING (IdAkses)");
+        $Keterangan = $_SESSION['Keterangan'];
+        $query = mysqli_query($connect, "SELECT IdPengguna, IdAkses, Keterangan FROM pengguna JOIN hakakses WHERE IdAkses = '$IdAkses'");
         $p = mysqli_fetch_array($query);
         if($Keterangan=='Admin'){
             echo "<meta http-equiv='refresh' content='0 url=dashboard.php'>";
