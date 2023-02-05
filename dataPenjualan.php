@@ -96,6 +96,7 @@ $result = mysqli_query($connect, $query);
                     <div class="box-2">
                             <table class="content-table">
                                 <tr>
+                                    <th>No</th>
                                     <th>Id Penjualan</th>
                                     <th>Id Barang</th>
                                     <th>Jumlah Penjualan</th>
