@@ -56,7 +56,7 @@ $result2 = mysqli_query($connect, $query);
                     </ul>
                     <ul>
                         <li>
-                            <a>
+                            <a href="dataPenjualan.php">
                                 <i class="fas fa-cash-register"></i>
                                 Daftar Penjualan
                             </a>

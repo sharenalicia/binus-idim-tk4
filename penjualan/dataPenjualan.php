@@ -1,9 +1,9 @@
+<!-- show data as table from mysql and make a html like dashboard.php -->
 <?php
-include 'koneksidb.php';
-$query = "SELECT * FROM pengguna";
+include "koneksidb.php";
+$query = "SELECT * FROM penjualan";
 $result = mysqli_query($connect, $query);
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -84,59 +84,53 @@ $result = mysqli_query($connect, $query);
         <main class="content-wrap">
             <header class="content-head">
                 <h1>Dashboard</h1>
+                <div class="action">
+                    <button onclick="location.href = 'logout.php';">
+                        Sign out
+                    </button>
+                </div>
             </header>
-            <div class="content-3">
-                <h2>Tambah Barang</h2>
-                <section class="input">
-                    <div class="box-input">
-                        <div class="box2">
-                            <form method="post" action="tambahBarang_process.php">
-                                <table>
+        
+            <div class="container">
+                <h2>Daftar Barang</h2>
+                    <div class="box-2">
+                            <table class="content-table">
+                                <tr>
+                                    <th>Id Penjualan</th>
+                                    <th>Id Barang</th>
+                                    <th>Jumlah Penjualan</th>
+                                    <th>Harga Jual</th>
+                                    <th>Id Pengguna</th>
+                                    <th>Pengaturan</th>
+                                </tr>
+                                <?php
+                                $no = 1;
+                                while ($row = mysqli_fetch_array($result)) {
+                                ?>
                                     <tr>
-                                        <td>Id Barang</td>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $row['IdPenjualan']; ?></td>
+                                        <td><?php echo $row['IdBarang']; ?></td>
+                                        <td><?php echo $row['JumlahPenjualan']; ?></td>
+                                        <td><?php echo $row['HargaJual']; ?></td>
+                                        <td><?php echo $row['IdPengguna']; ?></td>
                                         <td>
-                                            <input type="text" name="IdBarang" class="kolom">
-                                            </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama</td>
-                                        <td>
-                                            <input type="text" name="NamaBarang" class="kolom">
+                                            <a class="edit" href="editPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>&IdBarang=<?php echo $row['IdBarang']; ?>&IdPengguna=<?php echo $row['IdPengguna']; ?>">Edit</a>
+                                            <a class="delete" href="hapusPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>">Hapus</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>Keterangan</td>
-                                        <td>
-                                            <input type="text" name="Keterangan" class="kolom">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Satuan</td>
-                                        <td>
-                                            <input type="text" name="Satuan" class="kolom">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Id Pengguna</td>
-                                        <td>
-                                            <select name="IdPengguna" class="kolom">
-                                                <?php
-                                                $no = 1;
-                                                while ($row = mysqli_fetch_array($result)) {
-                                                    echo "<option value='" . $row['IdPengguna'] . "'>" . $row['IdPengguna'] . "</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="submit" value="SIMPAN" class="simpan"></td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
+                                <?php
+                                }
+                                ?>
+                            </table>
                     </div>
-                </section>
+
+                    <div class="action2">
+                        <button onclick="location.href = 'tambahPenjualan.php';">
+                            +Tambah Penjualan
+                        </button>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

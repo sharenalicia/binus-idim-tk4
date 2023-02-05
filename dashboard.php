@@ -51,7 +51,7 @@ if (!isset($_SESSION['idpengguna'])) {
                     </ul>
                     <ul>
                         <li>
-                            <a>
+                            <a href="dataPenjualan.php">
                                 <i class="fas fa-cash-register"></i>
                                 Daftar Penjualan
                             </a>
