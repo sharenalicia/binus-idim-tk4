@@ -101,14 +101,7 @@ $result = mysqli_query($connect, $query);
                                     <tr>
                                         <td>Id Barang</td>
                                         <td>
-                                        <select name="IdBarang" class="kolom">
-                                                <?php
-                                                $no = 1;
-                                                while ($row = mysqli_fetch_array($result)) {
-                                                    echo "<option value='" . $row['IdBarang'] . "'>" . $row['IdBarang'] . "</option>";
-                                                }
-                                                ?>
-                                            </select>
+                                            <input type="text" name="IdBarang" class="kolom">
                                         </td>
                                     </tr>
                                     <tr>
