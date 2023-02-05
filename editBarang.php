@@ -38,7 +38,7 @@ $result2 = mysqli_query($connect, $query);
                         <li>
                             <a href="dataBarang.php">
                                 <i class="fas fa-tag"></i>
-                                Data Barang
+                                Daftar Barang
                             </a>
                         </li>
                     </ul>
@@ -50,7 +50,7 @@ $result2 = mysqli_query($connect, $query);
                         <li>
                             <a href="dataPelanggan.php">
                                 <i class="fas fa-user"></i>
-                                Data Pelanggan
+                                Daftar Pelanggan
                             </a>
                         </li>
                     </ul>
@@ -58,7 +58,7 @@ $result2 = mysqli_query($connect, $query);
                         <li>
                             <a>
                                 <i class="fas fa-cash-register"></i>
-                                Data Penjualan
+                                Daftar Penjualan
                             </a>
                         </li>
                     </ul>
@@ -70,7 +70,7 @@ $result2 = mysqli_query($connect, $query);
                         <li>
                             <a>
                                 <i class="fas fa-store"></i>
-                                Data Supplier
+                                Daftar Supplier
                             </a>
                         </li>
                     </ul>
@@ -78,7 +78,7 @@ $result2 = mysqli_query($connect, $query);
                         <li>
                             <a>
                                 <i class="fas fa-receipt"></i>
-                                Data Pembelian
+                                Daftar Pembelian
                             </a>
                         </li>
                     </ul>
@@ -90,11 +90,11 @@ $result2 = mysqli_query($connect, $query);
             <header class="content-head">
                 <h1>Dashboard</h1>
             </header>
-            <div class="content">
-                <h2>Data Barang</h2>
-                <section class="content-2">
-                    <div class="box-2">
-                        <div class="box-content2">
+            <div class="content-3">
+                <h2>Edit Data Barang</h2>
+                <section class="input">
+                    <div class="box-input">
+                        <div class="box2">
                             <?php
                             while ($d = mysqli_fetch_array($result)) {
                             ?>
@@ -104,21 +104,25 @@ $result2 = mysqli_query($connect, $query);
                                             <td>Nama</td>
                                             <td>
                                                 <input type="hidden" name="IdBarang" value="<?php echo $d['IdBarang']; ?>">
-                                                <input type="text" name="NamaBarang" value="<?php echo $d['NamaBarang']; ?>">
+                                                <input type="text" name="NamaBarang" value="<?php echo $d['NamaBarang']; ?>" class="kolom">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Keterangan</td>
-                                            <td><input type="text" name="Keterangan" value="<?php echo $d['Keterangan']; ?>"></td>
+                                            <td>
+                                                <input type="text" name="Keterangan" value="<?php echo $d['Keterangan']; ?>" class="kolom">
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Satuan</td>
-                                            <td><input type="text" name="Satuan" value="<?php echo $d['Satuan']; ?>"></td>
+                                            <td>
+                                                <input type="text" name="Satuan" value="<?php echo $d['Satuan']; ?>" class="kolom">
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Id Pengguna</td>
                                             <td>
-                                                <select name="IdPengguna">
+                                                <select name="IdPengguna" class="kolom">
                                                     <?php
                                                     $no = 1;
                                                     while ($row = mysqli_fetch_array($result2)) {
@@ -132,7 +136,8 @@ $result2 = mysqli_query($connect, $query);
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><input type="submit" value="SIMPAN">
+                                            <td>
+                                                <input type="submit" value="SIMPAN" class="simpan">
                                             </td>
                                         </tr>
                                     </table>

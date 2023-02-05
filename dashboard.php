@@ -33,7 +33,7 @@ if (!isset($_SESSION['idpengguna'])) {
                         <li>
                             <a href="dataBarang.php">
                                 <i class="fas fa-tag"></i>
-                                Data Barang
+                                Daftar Barang
                             </a>
                         </li>
                     </ul>
@@ -45,7 +45,7 @@ if (!isset($_SESSION['idpengguna'])) {
                         <li>
                             <a href="dataPelanggan.php">
                                 <i class="fas fa-user"></i>
-                                Data Pelanggan
+                                Daftar Pelanggan
                             </a>
                         </li>
                     </ul>
@@ -53,7 +53,7 @@ if (!isset($_SESSION['idpengguna'])) {
                         <li>
                             <a>
                                 <i class="fas fa-cash-register"></i>
-                                Data Penjualan
+                                Daftar Penjualan
                             </a>
                         </li>
                     </ul>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['idpengguna'])) {
                         <li>
                             <a>
                                 <i class="fas fa-store"></i>
-                                Data Supplier
+                                Daftar Supplier
                             </a>
                         </li>
                     </ul>
@@ -73,7 +73,7 @@ if (!isset($_SESSION['idpengguna'])) {
                         <li>
                             <a>
                                 <i class="fas fa-receipt"></i>
-                                Data Pembelian
+                                Daftar Pembelian
                             </a>
                         </li>
                     </ul>

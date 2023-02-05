@@ -33,7 +33,7 @@ $result = mysqli_query($connect, $query);
                         <li>
                             <a href="dataBarang.php">
                                 <i class="fas fa-tag"></i>
-                                Data Barang
+                                Daftar Barang
                             </a>
                         </li>
                     </ul>
@@ -45,7 +45,7 @@ $result = mysqli_query($connect, $query);
                         <li>
                             <a href="dataPelanggan.php">
                                 <i class="fas fa-user"></i>
-                                Data Pelanggan
+                                Daftar Pelanggan
                             </a>
                         </li>
                     </ul>
@@ -53,7 +53,7 @@ $result = mysqli_query($connect, $query);
                         <li>
                             <a>
                                 <i class="fas fa-cash-register"></i>
-                                Data Penjualan
+                                Daftar Penjualan
                             </a>
                         </li>
                     </ul>
@@ -65,7 +65,7 @@ $result = mysqli_query($connect, $query);
                         <li>
                             <a>
                                 <i class="fas fa-store"></i>
-                                Data Supplier
+                                Daftar Supplier
                             </a>
                         </li>
                     </ul>
@@ -73,7 +73,7 @@ $result = mysqli_query($connect, $query);
                         <li>
                             <a>
                                 <i class="fas fa-receipt"></i>
-                                Data Pembelian
+                                Daftar Pembelian
                             </a>
                         </li>
                     </ul>
@@ -92,7 +92,7 @@ $result = mysqli_query($connect, $query);
             </header>
         
             <div class="container">
-                <h2>Data Barang</h2>
+                <h2>Daftar Barang</h2>
                     <div class="box-2">
                             <table class="content-table">
                                 <tr>
