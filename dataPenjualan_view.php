@@ -2,7 +2,7 @@
 include "koneksidb.php";
 session_start();
 $nama = $_SESSION['nama'];
-$query = "SELECT * FROM penjualan";
+$query = "SELECT * FROM penjualan_d";
 $result = mysqli_query($connect, $query);
 ?>
 <html>

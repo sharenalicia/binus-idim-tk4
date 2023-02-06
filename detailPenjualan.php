@@ -1,9 +1,8 @@
-<!-- show data as table from mysql and make a html like dashboard.php -->
 <?php
 include "koneksidb.php";
 session_start();
 $nama = $_SESSION['nama'];
-$query = "SELECT * FROM penjualan_d";
+$query = "SELECT * FROM penjualan_h";
 $result = mysqli_query($connect, $query);
 ?>
 <html>
@@ -71,7 +70,7 @@ $result = mysqli_query($connect, $query);
                     </ul>
                     <ul>
                         <li>
-                            <a href="dataPembelian.php">
+                            <a>
                                 <i class="fas fa-receipt"></i>
                                 Daftar Pembelian
                             </a>
@@ -92,17 +91,15 @@ $result = mysqli_query($connect, $query);
             </header>
         
             <div class="container">
-                <h2>Daftar Barang</h2>
+                <h2>Detail Penjualan</h2>
                     <div class="box-2">
                             <table class="content-table">
                                 <tr>
                                     <th>No</th>
                                     <th>Id Penjualan</th>
-                                    <th>Id Barang</th>
-                                    <th>Jumlah Penjualan</th>
-                                    <th>Harga Jual</th>
+                                    <th>Tanggal</th>
+                                    <th>Id Pelanggan</th>
                                     <th>Id Pengguna</th>
-                                    <th>Pengaturan</th>
                                 </tr>
                                 <?php
                                 $no = 1;
@@ -111,28 +108,15 @@ $result = mysqli_query($connect, $query);
                                     <tr>
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $row['IdPenjualan']; ?></td>
-                                        <td><?php echo $row['IdBarang']; ?></td>
-                                        <td><?php echo $row['JumlahPenjualan']; ?></td>
-                                        <td><?php echo $row['HargaJual']; ?></td>
+                                        <td><?php echo $row['Tanggal']; ?></td>
+                                        <td><?php echo $row['IdPelanggan']; ?></td>
                                         <td><?php echo $row['IdPengguna']; ?></td>
-                                        <td>
-                                            <a class="edit" href="editPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>&IdPengguna=<?php echo $row['IdPengguna']; ?>">Edit</a>
-                                            <a class="delete" href="hapusPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>">Hapus</a>
-                                        </td>
+
                                     </tr>
                                 <?php
                                 }
                                 ?>
                             </table>
-                    </div>
-
-                    <div class="action2">
-                        <button onclick="location.href = 'tambahPenjualan.php';">
-                            +Tambah Penjualan
-                        </button>
-                        <button onclick="location.href = 'detailPenjualan.php';">
-                            Detail Penjualan
-                        </button>
                     </div>
                 </div>
             </div>
