@@ -2,7 +2,7 @@
 include "koneksidb.php";
 session_start();
 $nama = $_SESSION['nama'];
-$query = "SELECT * FROM penjualan_d";
+$query = "SELECT * FROM penjualan_h";
 $result = mysqli_query($connect, $query);
 ?>
 <html>
@@ -91,15 +91,14 @@ $result = mysqli_query($connect, $query);
             </header>
         
             <div class="container">
-                <h2>Daftar Barang</h2>
+                <h2>Detail Penjualan</h2>
                     <div class="box-2">
                             <table class="content-table">
                                 <tr>
                                     <th>No</th>
                                     <th>Id Penjualan</th>
-                                    <th>Id Barang</th>
-                                    <th>Jumlah Penjualan</th>
-                                    <th>Harga Jual</th>
+                                    <th>Tanggal</th>
+                                    <th>Id Pelanggan</th>
                                     <th>Id Pengguna</th>
                                 </tr>
                                 <?php
@@ -109,9 +108,8 @@ $result = mysqli_query($connect, $query);
                                     <tr>
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $row['IdPenjualan']; ?></td>
-                                        <td><?php echo $row['IdBarang']; ?></td>
-                                        <td><?php echo $row['JumlahPenjualan']; ?></td>
-                                        <td><?php echo $row['HargaJual']; ?></td>
+                                        <td><?php echo $row['Tanggal']; ?></td>
+                                        <td><?php echo $row['IdPelanggan']; ?></td>
                                         <td><?php echo $row['IdPengguna']; ?></td>
 
                                     </tr>
@@ -120,13 +118,6 @@ $result = mysqli_query($connect, $query);
                                 ?>
                             </table>
                     </div>
-
-                    <div class="action2">
-                        <button onclick="location.href = 'detailPenjualan_view.php';">
-                            Detail Penjualan
-                        </button>
-                    </div>
-
                 </div>
             </div>
         </main>
