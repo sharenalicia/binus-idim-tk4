@@ -89,7 +89,7 @@ $result2 = mysqli_query($connect, $query);
                 <h1>Dashboard</h1>
             </header>
             <div class="content-3">
-                <h2>Tambah Pembelian</h2>
+                <h2>Tambah Data Pembelian</h2>
                 <section class="input">
                     <div class="box-input">
                         <div class="box2">
