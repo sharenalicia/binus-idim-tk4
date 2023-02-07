@@ -2,7 +2,7 @@
 include 'koneksidb.php';
 
 $IdPenjualan = $_GET['IdPenjualan'];
-$sql = "DELETE FROM penjualana_h , penjualan_d  WHERE `penjualan_h`.`IdPenjualan` = '$IdPenjualan' AND  `penjualan_h`.`IdPenjualan` = '$IdPenjualan'";
+$sql = "DELETE * FROM penjualana_h , penjualan_d  WHERE `penjualan_h`.`IdPenjualan` = '$IdPenjualan' AND  `penjualan_h`.`IdPenjualan` = '$IdPenjualan'";
  
 $result = mysql_query($sql);
 
