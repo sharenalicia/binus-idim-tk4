@@ -4,6 +4,7 @@ session_start();
 $nama = $_SESSION['nama'];
 $id = $_GET['IdPembelian'];
 $IdPengguna = $_GET['IdPengguna'];
+
 $query = "SELECT * FROM pembelian WHERE IdPembelian='$id'";
 $result = mysqli_query($connect, $query);
 
