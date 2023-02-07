@@ -115,7 +115,7 @@ $result = mysqli_query($connect, $query);
                                         <td><?php echo $row['HargaJual']; ?></td>
                                         <td><?php echo $row['IdPengguna']; ?></td>
                                         <td>
-                                            <a class="delete" href="hapusPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>">Hapus</a>
+                                            <a class="delete" href="hapusPenjualan.php?IdPenjualan=<?php echo $row['IdPenjualan']; ?>">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php
