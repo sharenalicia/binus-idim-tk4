@@ -2,7 +2,7 @@
 include "koneksidb.php";
 session_start();
 $nama = $_SESSION['nama'];
-$query = "SELECT * FROM penjualan_h";
+$query = "SELECT * FROM penjualan_d";
 $result = mysqli_query($connect, $query);
 ?>
 <html>
@@ -97,9 +97,11 @@ $result = mysqli_query($connect, $query);
                                 <tr>
                                     <th>No</th>
                                     <th>Id Penjualan</th>
-                                    <th>Tanggal</th>
-                                    <th>Id Pelanggan</th>
+                                    <th>Id Barang</th>
+                                    <th>Jumlah Penjualan</th>
+                                    <th>Harga Jual</th>
                                     <th>Id Pengguna</th>
+                                    <th>Pengaturan</th>
                                 </tr>
                                 <?php
                                 $no = 1;
@@ -108,17 +110,25 @@ $result = mysqli_query($connect, $query);
                                     <tr>
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $row['IdPenjualan']; ?></td>
-                                        <td><?php echo $row['Tanggal']; ?></td>
-                                        <td><?php echo $row['IdPelanggan']; ?></td>
+                                        <td><?php echo $row['IdBarang']; ?></td>
+                                        <td><?php echo $row['JumlahPenjualan']; ?></td>
+                                        <td><?php echo $row['HargaJual']; ?></td>
                                         <td><?php echo $row['IdPengguna']; ?></td>
-
+                                        <td>
+                                            <a class="edit" href="editPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>&IdPengguna=<?php echo $row['IdPengguna']; ?>">Edit</a>
+                                            <a class="delete" href="hapusPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>">Hapus</a>
+                                        </td>
                                     </tr>
                                 <?php
                                 }
                                 ?>
                             </table>
                     </div>
-                </div>
+                    <div class="action2">
+                        <button onclick="location.href = 'tambahPenjualan.php';">
+                            +Tambah Penjualan
+                        </button>
+                    </div>
             </div>
         </main>
     </div>
