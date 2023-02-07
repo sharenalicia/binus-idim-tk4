@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2023 at 04:26 PM
+-- Generation Time: Feb 07, 2023 at 06:06 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -40,7 +40,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`IdBarang`, `NamaBarang`, `Keterangan`, `Satuan`, `IdPengguna`) VALUES
-('B0016', 'Selotip Bening 1/2 i', '', '13500', 'P210'),
+('B0016', 'Selotip Bening 1/2\"', '', '13500', 'P210'),
 ('B0081', 'Pulpen Standard 0,5', '', '4000', 'P203'),
 ('B0092', 'Pensil Warna', 'Isi 18 war', '52000', 'P161'),
 ('B0100', 'Rautan Pensil', '', '16000', 'P121'),
@@ -88,91 +88,115 @@ INSERT INTO `hakakses` (`IdAkses`, `NamaAkses`, `Keterangan`) VALUES
 CREATE TABLE `pelanggan` (
   `IdPelanggan` varchar(6) NOT NULL,
   `NamaPelanggan` varchar(20) NOT NULL,
-  `Alamat` varchar(30) NOT NULL,
+  `Alamat` varchar(50) NOT NULL,
   `NoHp` varchar(13) NOT NULL,
-  `IdPenjualan` char(8) NOT NULL
+  `IdPengguna` char(5) NOT NULL
 ) ;
 
 --
 -- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`IdPelanggan`, `NamaPelanggan`, `Alamat`, `NoHp`, `IdPenjualan`) VALUES
-('CUS001', 'Intan', 'Jl. Agus Salim, Tangerang', '0821243210127', 'SLD00100'),
-('CUS002', 'Safira', 'Jl. Sidokabul, Yogyakarta', '0811928491824', 'SLD00105'),
-('CUS003', 'Achmad', 'Jl. Sunan Giri, Magetan', '0891297455911', 'SLD00110'),
-('CUS004', 'Risky', 'Jl. Martapura 5A, Surabaya', '0821975893434', 'SLD00115'),
-('CUS005', 'Imelda', 'Jl. Gedong, Bandung', '0897235885555', 'SLD00120'),
-('CUS006', 'Zahwa', 'Jl. Anggrek 10B, Malang', '0829247859123', 'SLD00125'),
-('CUS007', 'Marion', 'Jl. Bukit Duri, Jakarta', '0829592469456', 'SLD00130'),
-('CUS008', 'Jonathan', 'Jl. KP Melayu, Tangerang', '0812931957191', 'SLD00135'),
-('CUS009', 'Evelyn', 'Jl. Sedayu, Cirebon', '0892975860346', 'SLD00140'),
-('CUS010', 'Hannan', 'Jl. Fatmawati 11, Semarang', '0829783946345', 'SLD00145'),
-('CUS011', 'Anisa', 'Jl. Krukuh, Solo', '0819284597365', 'SLD00150'),
-('CUS012', 'Sukma', 'Jl. Sutomo, Malang', '0826699554422', 'SLD00155'),
-('CUS013', 'Siska', 'Jl. Bukit Tinggi, Jakarta', '0858578923495', 'SLD00160'),
-('CUS014', 'Samuel', 'Jl. Lingkar Nagreg, Jawa Barat', '081734583456', 'SLD00165'),
-('CUS015', 'Dara', 'Jl. Melati ED 5, Surabaya', '082959345345', 'SLD00170'),
-('CUS016', 'Elis', 'Jl. Susun Desa 2, Jakarta', '081939696849', 'SLD00142'),
-('CUS017', 'Farhan', 'Jl. Pasar Kembang, Solo', '089974583455', 'SLD00215'),
-('CUS018', 'Rizzki', 'Jl. Indah 15, Palopo', '082989325403', 'SLD10382'),
-('CUS019', 'Dimas', 'Jl. Susun Semanggi, Jakarta', '089482734892', 'SLD00603'),
-('CUS020', 'Sherina', 'Jl. Mpok Nori, Jakarta Timur', '088971393591', 'SLD01079');
+INSERT INTO `pelanggan` (`IdPelanggan`, `NamaPelanggan`, `Alamat`, `NoHp`, `IdPengguna`) VALUES
+('CUS001', 'Intan', 'Jl. Agus Salim, Tangerang', '0821243210127', 'P210'),
+('CUS002', 'Safira', 'Jl. Sidokabul, Yogyakarta', '0811928491824', 'P203'),
+('CUS003', 'Achmad', 'Jl. Sunan Giri, Magetan', '0891297455911', 'P173'),
+('CUS004', 'Risky', 'Jl. Martapura 5A, Surabaya', '0821975893434', 'P168'),
+('CUS005', 'Imelda', 'Jl. Gedong 21A, Bandung', '0897235885555', 'P161'),
+('CUS006', 'Zahwa', 'Jl. Anggrek 10B, Malang', '0829247859123', 'P121'),
+('CUS007', 'Marion', 'Jl. Bukit Duri ED17, Jakarta Pusat', '0829592469456', 'P042'),
+('CUS008', 'Jonathan', 'Jl. Kampung Melayu II, Tangerang', '0812931957191', 'P025'),
+('CUS009', 'Evelyn', 'Jl. Sedayu, Cirebon, Jawa Barat', '0892975860346', 'P019'),
+('CUS010', 'Hannan', 'Jl. Fatmawati 11, Semarang', '0829783946345', 'P006'),
+('CUS011', 'Anisa', 'Jl. Krukuh Barat Daya 23D, Solo', '0819284597365', 'P006'),
+('CUS012', 'Sukma', 'Jl. Sutomo Raya No.33B, Malang', '0826699554422', 'P210'),
+('CUS013', 'Siska', 'Jl. Bukit Tinggi, Jakarta', '0858578923495', 'P019'),
+('CUS014', 'Samuel', 'Jl. Lingkar Nagreg, Jawa Barat', '081734583456', 'P203'),
+('CUS015', 'Daraputri', 'Jl. Melati ED 5, Surabaya', '082959345345', 'P025'),
+('CUS016', 'Elisya', 'Jl. Susun Desa 2, Jakarta', '081939696849', 'P173'),
+('CUS017', 'Farhan', 'Jl. Pasar Kembang, Solo', '089974583455', 'P042'),
+('CUS018', 'Rizzky', 'Jl. Indah 15, Palopo', '082989325403', 'P168'),
+('CUS019', 'Dimas', 'Jl. Susun Semanggi, Jakarta', '089482734892', 'P121'),
+('CUS020', 'Sheina', 'Jl. Nori Barat Daya No.91, Jakarta Timur', '088971393591', 'P161');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembelian`
+-- Table structure for table `pembelian_d`
 --
 
-CREATE TABLE `pembelian` (
+CREATE TABLE `pembelian_d` (
   `IdPembelian` char(8) NOT NULL,
+  `IdBarang` char(5) NOT NULL,
   `JumlahPembelian` varchar(3) NOT NULL,
   `HargaBeli` varchar(15) NOT NULL,
-  `IdPengguna` char(5) NOT NULL,
-  `IdBarang` char(5) NOT NULL
+  `IdPengguna` char(5) NOT NULL
 ) ;
 
 --
--- Dumping data for table `pembelian`
+-- Dumping data for table `pembelian_d`
 --
 
-INSERT INTO `pembelian` (`IdPembelian`, `JumlahPembelian`, `HargaBeli`, `IdPengguna`, `IdBarang`) VALUES
-('INV00093', '5', '37000', 'P025', 'B3065'),
-('INV00100', '10', '13500', 'P210', 'B0016'),
-('INV00105', '10', '4000', 'P203', 'B0081'),
-('INV00110', '12', '52000', 'P161', 'B0092'),
-('INV00115', '7', '16000', 'P121', 'B0100'),
-('INV00116', '10', '45000', 'P173', 'B4211'),
-('INV00120', '15', '78000', 'P168', 'B0201'),
-('INV00125', '5', '23000', 'P019', 'B0329'),
-('INV00130', '12', '5000', 'P006', 'B1223'),
-('INV00135', '12', '25000', 'P042', 'B1619'),
-('INV00140', '7', '37000', 'P025', 'B3065'),
-('INV00142', '35', '16000', 'P121', 'B0100'),
-('INV00145', '7', '45000', 'P173', 'B4211'),
-('INV00150', '5', '16000', 'P121', 'B0100'),
-('INV00155', '5', '23000', 'P019', 'B0329'),
-('INV00160', '10', '4000', 'P203', 'B0081'),
-('INV00165', '15', '13500', 'P210', 'B0016'),
-('INV00170', '10', '5000', 'P006', 'B1223'),
-('INV00172', '20', '78000', 'P168', 'B0201'),
-('INV00184', '10', '37000', 'P025', 'B3065'),
-('INV00215', '7', '25000', 'P042', 'B1619'),
-('INV00218', '10', '4000', 'P203', 'B0081'),
-('INV00429', '15', '45000', 'P173', 'B4211'),
-('INV00603', '5', '25000', 'P042', 'B1619'),
-('INV00637', '5', '52000', 'P161', 'B0092'),
-('INV00731', '25', '4000', 'P203', 'B0081'),
-('INV01043', '15', '5000', 'P006', 'B1223'),
-('INV01079', '7', '37000', 'P025', 'B3065'),
-('INV01204', '5', '52000', 'P161', 'B0092'),
-('INV01962', '7', '13500', 'P210', 'B0016'),
-('INV02104', '20', '5000', 'P006', 'B1223'),
-('INV02561', '20', '4000', 'P203', 'B0081'),
-('INV10382', '15', '23000', 'P019', 'B0329'),
-('INV10627', '30', '13500', 'P210', 'B0016'),
-('INV11705', '15', '5000', 'P006', 'B1223');
+INSERT INTO `pembelian_d` (`IdPembelian`, `IdBarang`, `JumlahPembelian`, `HargaBeli`, `IdPengguna`) VALUES
+('INV00100', 'B0016', '10', '13500', 'P019'),
+('INV00105', 'B0081', '10', '4000', 'P006'),
+('INV00110', 'B0092', '12', '52000', 'P025'),
+('INV00115', 'B0100', '7', '16000', 'P042'),
+('INV00120', 'B0201', '15', '78000', 'P121'),
+('INV00125', 'B0329', '5', '23000', 'P161'),
+('INV00130', 'B1223', '12', '5000', 'P168'),
+('INV00135', 'B1619', '12', '25000', 'P173'),
+('INV00140', 'B3065', '7', '37000', 'P203'),
+('INV00145', 'B4211', '7', '45000', 'P210'),
+('INV00150', 'B0100', '5', '16000', 'P006'),
+('INV00155', 'B0329', '5', '23000', 'P019'),
+('INV00160', 'B0081', '10', '4000', 'P025'),
+('INV00165', 'B0016', '15', '13500', 'P042'),
+('INV00170', 'B1223', '12', '5000', 'P121'),
+('INV00175', 'B4211', '5', '45000', 'P161'),
+('INV00180', 'B3065', '10', '37000', 'P168'),
+('INV00185', 'B1619', '12', '25000', 'P173'),
+('INV00190', 'B0201', '5', '78000', 'P203'),
+('INV00195', 'B0092', '7', '52000', 'P210');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembelian_h`
+--
+
+CREATE TABLE `pembelian_h` (
+  `IdPembelian` char(8) NOT NULL,
+  `Tanggal` date NOT NULL,
+  `IdSupplier` varchar(6) NOT NULL,
+  `IdPengguna` char(5) NOT NULL
+) ;
+
+--
+-- Dumping data for table `pembelian_h`
+--
+
+INSERT INTO `pembelian_h` (`IdPembelian`, `Tanggal`, `IdSupplier`, `IdPengguna`) VALUES
+('INV00100', '2022-12-04', 'SUP001', 'P019'),
+('INV00105', '2022-12-04', 'SUP002', 'P006'),
+('INV00110', '2022-12-04', 'SUP003', 'P025'),
+('INV00115', '2022-12-05', 'SUP004', 'P042'),
+('INV00120', '2022-12-05', 'SUP005', 'P121'),
+('INV00125', '2022-12-05', 'SUP006', 'P161'),
+('INV00130', '2022-12-05', 'SUP007', 'P168'),
+('INV00135', '2022-12-06', 'SUP008', 'P173'),
+('INV00140', '2022-12-06', 'SUP009', 'P203'),
+('INV00145', '2022-12-06', 'SUP010', 'P210'),
+('INV00150', '2022-12-07', 'SUP020', 'P006'),
+('INV00155', '2022-12-07', 'SUP019', 'P019'),
+('INV00160', '2022-12-07', 'SUP018', 'P025'),
+('INV00165', '2022-12-08', 'SUP017', 'P042'),
+('INV00170', '2022-12-08', 'SUP016', 'P121'),
+('INV00175', '2022-12-08', 'SUP015', 'P161'),
+('INV00180', '2022-12-08', 'SUP014', 'P168'),
+('INV00185', '2022-12-08', 'SUP013', 'P173'),
+('INV00190', '2022-12-09', 'SUP012', 'P203'),
+('INV00195', '2022-12-09', 'SUP011', 'P210');
 
 -- --------------------------------------------------------
 
@@ -210,57 +234,81 @@ INSERT INTO `pengguna` (`IdPengguna`, `NamaPengguna`, `Password`, `NamaDepan`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penjualan`
+-- Table structure for table `penjualan_d`
 --
 
-CREATE TABLE `penjualan` (
+CREATE TABLE `penjualan_d` (
   `IdPenjualan` char(8) NOT NULL,
+  `IdBarang` char(5) NOT NULL,
   `JumlahPenjualan` varchar(3) NOT NULL,
   `HargaJual` varchar(15) NOT NULL,
-  `IdPengguna` char(5) NOT NULL,
-  `IdBarang` char(5) NOT NULL
+  `IdPengguna` char(5) NOT NULL
 ) ;
 
 --
--- Dumping data for table `penjualan`
+-- Dumping data for table `penjualan_d`
 --
 
-INSERT INTO `penjualan` (`IdPenjualan`, `JumlahPenjualan`, `HargaJual`, `IdPengguna`, `IdBarang`) VALUES
-('SLD00093', '2', '40000', 'P025', 'B3065'),
-('SLD00100', '8', '15000', 'P210', 'B0016'),
-('SLD00105', '9', '10000', 'P203', 'B0081'),
-('SLD00110', '10', '55000', 'P161', 'B0092'),
-('SLD00115', '7', '18000', 'P121', 'B0100'),
-('SLD00116', '6', '50000', 'P173', 'B4211'),
-('SLD00120', '13', '82000', 'P168', 'B0201'),
-('SLD00125', '5', '25000', 'P019', 'B0329'),
-('SLD00130', '10', '12000', 'P006', 'B1223'),
-('SLD00135', '10', '30000', 'P042', 'B1619'),
-('SLD00140', '5', '40000', 'P025', 'B3065'),
-('SLD00142', '25', '18000', 'P121', 'B0100'),
-('SLD00145', '7', '50000', 'P173', 'B4211'),
-('SLD00150', '4', '18000', 'P121', 'B0100'),
-('SLD00155', '5', '25000', 'P019', 'B0329'),
-('SLD00160', '8', '10000', 'P203', 'B0081'),
-('SLD00165', '13', '15000', 'P210', 'B0016'),
-('SLD00170', '9', '12000', 'P006', 'B1223'),
-('SLD00172', '14', '82000', 'P168', 'B0201'),
-('SLD00184', '8', '40000', 'P025', 'B3065'),
-('SLD00215', '3', '30000', 'P042', 'B1619'),
-('SLD00218', '9', '10000', 'P203', 'B0081'),
-('SLD00429', '10', '50000', 'P173', 'B4211'),
-('SLD00603', '5', '30000', 'P042', 'B1619'),
-('SLD00637', '4', '55000', 'P161', 'B0092'),
-('SLD00731', '20', '10000', 'P203', 'B0081'),
-('SLD01043', '9', '12000', 'P006', 'B1223'),
-('SLD01079', '6', '40000', 'P025', 'B3065'),
-('SLD01204', '1', '55000', 'P161', 'B0092'),
-('SLD01962', '7', '15000', 'P210', 'B0016'),
-('SLD02104', '16', '12000', 'P006', 'B1223'),
-('SLD02561', '17', '10000', 'P203', 'B0081'),
-('SLD10382', '7', '25000', 'P019', 'B0329'),
-('SLD10627', '21', '15000', 'P210', 'B0016'),
-('SLD11705', '12', '12000', 'P006', 'B1223');
+INSERT INTO `penjualan_d` (`IdPenjualan`, `IdBarang`, `JumlahPenjualan`, `HargaJual`, `IdPengguna`) VALUES
+('SLD00100', 'B0016', '7', '16000', 'P121'),
+('SLD00105', 'B0081', '8', '10000', 'P042'),
+('SLD00110', 'B0092', '10', '55000', 'P025'),
+('SLD00115', 'B0100', '7', '18000', 'P019'),
+('SLD00120', 'B0201', '13', '82000', 'P006'),
+('SLD00125', 'B0329', '5', '25000', 'P161'),
+('SLD00130', 'B1223', '10', '12000', 'P168'),
+('SLD00135', 'B1619', '10', '30000', 'P173'),
+('SLD00140', 'B3065', '5', '40000', 'P203'),
+('SLD00145', 'B4211', '7', '50000', 'P210'),
+('SLD00150', 'B0100', '4', '18000', 'P006'),
+('SLD00155', 'B0329', '5', '25000', 'P019'),
+('SLD00160', 'B0081', '8', '10000', 'P025'),
+('SLD00165', 'B0016', '13', '15000', 'P042'),
+('SLD00170', 'B1223', '9', '12000', 'P121'),
+('SLD00175', 'B4211', '5', '50000', 'P161'),
+('SLD00180', 'B3065', '8', '40000', 'P168'),
+('SLD00185', 'B1619', '12', '30000', 'P173'),
+('SLD00190', 'B0201', '3', '82000', 'P203'),
+('SLD00195', 'B0092', '5', '55000', 'P210');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penjualan_h`
+--
+
+CREATE TABLE `penjualan_h` (
+  `IdPenjualan` char(8) NOT NULL,
+  `Tanggal` date NOT NULL,
+  `IdPelanggan` varchar(6) NOT NULL,
+  `IdPengguna` char(5) NOT NULL
+) ;
+
+--
+-- Dumping data for table `penjualan_h`
+--
+
+INSERT INTO `penjualan_h` (`IdPenjualan`, `Tanggal`, `IdPelanggan`, `IdPengguna`) VALUES
+('SLD00145', '2023-02-10', 'CUS001', 'P210'),
+('SLD00140', '2022-12-09', 'CUS002', 'P203'),
+('SLD00135', '2022-12-09', 'CUS003', 'P173'),
+('SLD00130', '2022-12-08', 'CUS004', 'P168'),
+('SLD00125', '2022-12-08', 'CUS005', 'P161'),
+('SLD00120', '2022-12-07', 'CUS006', 'P006'),
+('SLD00115', '2022-12-07', 'CUS007', 'P019'),
+('SLD00110', '2022-12-06', 'CUS008', 'P025'),
+('SLD00105', '2022-12-06', 'CUS009', 'P042'),
+('SLD00100', '2022-12-06', 'CUS010', 'P121'),
+('SLD00150', '2022-12-10', 'CUS011', 'P006'),
+('SLD00155', '2022-12-11', 'CUS012', 'P019'),
+('SLD00160', '2022-12-11', 'CUS013', 'P025'),
+('SLD00165', '2022-12-11', 'CUS014', 'P042'),
+('SLD00170', '2022-12-12', 'CUS015', 'P121'),
+('SLD00175', '2022-12-12', 'CUS016', 'P161'),
+('SLD00180', '2022-12-13', 'CUS017', 'P168'),
+('SLD00185', '2022-12-13', 'CUS018', 'P173'),
+('SLD00190', '2022-12-13', 'CUS019', 'P203'),
+('SLD00195', '2022-12-14', 'CUS020', 'P210');
 
 -- --------------------------------------------------------
 
@@ -271,36 +319,36 @@ INSERT INTO `penjualan` (`IdPenjualan`, `JumlahPenjualan`, `HargaJual`, `IdPengg
 CREATE TABLE `supplier` (
   `IdSupplier` varchar(6) NOT NULL,
   `NamaSupplier` varchar(20) NOT NULL,
-  `Alamat` varchar(30) NOT NULL,
+  `Alamat` varchar(50) NOT NULL,
   `NoHp` varchar(13) NOT NULL,
-  `IdPembelian` char(8) NOT NULL
+  `IdPengguna` char(5) NOT NULL
 ) ;
 
 --
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`IdSupplier`, `NamaSupplier`, `Alamat`, `NoHp`, `IdPembelian`) VALUES
-('SUP001', 'Danty', 'Jl. Elang 12 No. 7 Bintaro, Ta', '0821243190127', 'INV00100'),
-('SUP002', 'Karina', 'Jl. Kasuari AD 19 Grogol, Jaka', '0813179921042', 'INV00105'),
-('SUP003', 'Agustina', 'Jl. Selokan Mataram 20 , Semar', '0823178909875', 'INV00110'),
-('SUP004', 'Bayu', 'Jl. Ahmad Dahlan, Yogyakarta', '0818907654566', 'INV00115'),
-('SUP005', 'Aji', 'Jl. Wijaya Kusuma, Malang', '0892389645324', 'INV00120'),
-('SUP006', 'Surya', 'Jl. Pulo Ayang II, DKI Jakarta', '0823189734553', 'INV00125'),
-('SUP007', 'Putri', 'Jl. Iskandar Muda, Semarang', '0818889760212', 'INV00130'),
-('SUP008', 'Ayu', 'Jl. Raya Cakung, DKI Jakarta', '0821350139411', 'INV00135'),
-('SUP009', 'Margaretha', 'Jl. MH Thamrin, Madiun', '0892318294412', 'INV00140'),
-('SUP010', 'Sania', 'Jl. Agus Salim, Gresik', '0821394194756', 'INV00145'),
-('SUP011', 'Maharani', 'Jl. Soekarno Hatta, Bandung', '0891924812495', 'INV00150'),
-('SUP012', 'Sapto', 'Jl. Bhakti Asih, Sidoarjo', '0815856792342', 'INV00155'),
-('SUP013', 'Cassandra', 'Jl. Nitikan 9, Surabaya', '0820291402821', 'INV00160'),
-('SUP014', 'Sintya', 'Jl. Imam Bonjol, Surabaya', '0891924917541', 'INV00165'),
-('SUP015', 'Wahyu', 'Jl. Situbongo, Banyuwangi', '0821875823519', 'INV00170'),
-('SUP016', 'Bagus', 'Jl. Slamet Riyadi, Solo', '0829183513434', 'INV00142'),
-('SUP017', 'Ferdi', 'Jl. Kencana 15, Surabaya', '0819185345496', 'INV00215'),
-('SUP018', 'Bagas', 'Jl. Pisang, Tangerang', '0823498899455', 'INV10382'),
-('SUP019', 'Arjun', 'Jl. Jend Urip Sumuharjo, Tange', '0897896784321', 'INV00603'),
-('SUP020', 'Jesselin', 'Jl. Ki Hajar Dewantara, Malang', '0897867890982', 'INV01079');
+INSERT INTO `supplier` (`IdSupplier`, `NamaSupplier`, `Alamat`, `NoHp`, `IdPengguna`) VALUES
+('SUP001', 'Danty', 'Jl. Elang 12 No. 7 Bintaro, Tangerang', '0821243190127', 'P019'),
+('SUP002', 'Karina', 'Jl. Kasuari AD 19 Grogol, Jakarta Barat', '0821243190127', 'P006'),
+('SUP003', 'Agustina', 'Jl. Selokan Mataram, Semarang', '0823178909875', 'P025'),
+('SUP004', 'Bayu', 'Jl. Ahmad Dahlan, Yogyakarta', '0818907654566', 'P042'),
+('SUP005', 'Aji', 'Jl. Wijaya Kusuma, Malang', '0892389645324', 'P121'),
+('SUP006', 'Surya', 'Jl. Pulo Ayang II, DKI Jakarta', '0823189734553', 'P161'),
+('SUP007', 'Putri', 'Jl. Iskandar Muda, Semarang', '0818889760212', 'P168'),
+('SUP008', 'Ayu', 'Jl. Raya Cakung, DKI Jakarta', '0821350139411', 'P173'),
+('SUP009', 'Margaretha', 'Jl. MH Thamrin, Madiun', '0892318294412', 'P203'),
+('SUP010', 'Sania', 'Jl. Agus Salim, Gresik', '0821394194756', 'P210'),
+('SUP011', 'Maharani', 'Jl. Soekarno Hatta, Bandung', '0891924812495', 'P006'),
+('SUP012', 'Sapto', 'Jl. Bhakti Asih, Sidoarjo', '0815856792342', 'P019'),
+('SUP013', 'Cassandra', 'Jl. Nitikan, Surabaya', '0820291402821', 'P025'),
+('SUP014', 'Sintya', 'Jl. Imam Bonjol, Surabaya', '0891924917541', 'P042'),
+('SUP015', 'Wahyu', 'Jl. Situbongo, Banyuwangi', '0821875823519', 'P121'),
+('SUP016', 'Bagus', 'Jl. Slamet Riyadi, Solo', '0829183513434', 'P161'),
+('SUP017', 'Ferdi', 'Jl. Kencana, Surabaya', '0819185345496', 'P168'),
+('SUP018', 'Bagas', 'Jl. Pisang, Tangerang', '0823498899455', 'P173'),
+('SUP019', 'Arjun', 'Jl. Jend Urip Sumuharjo, Tangerang', '0897896784321', 'P203'),
+('SUP020', 'Jesselin', 'Jl. Ki Hajar Dewantara, Malang', '0897867890982', 'P210');
 
 --
 -- Indexes for dumped tables
@@ -324,15 +372,23 @@ ALTER TABLE `hakakses`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`IdPelanggan`),
-  ADD KEY `IdPenjualan` (`IdPenjualan`);
+  ADD KEY `IdPengguna` (`IdPengguna`);
 
 --
--- Indexes for table `pembelian`
+-- Indexes for table `pembelian_d`
 --
-ALTER TABLE `pembelian`
+ALTER TABLE `pembelian_d`
   ADD PRIMARY KEY (`IdPembelian`),
-  ADD KEY `IdPengguna` (`IdPengguna`),
-  ADD KEY `IdBarang` (`IdBarang`);
+  ADD KEY `IdBarang` (`IdBarang`),
+  ADD KEY `IdPengguna` (`IdPengguna`);
+
+--
+-- Indexes for table `pembelian_h`
+--
+ALTER TABLE `pembelian_h`
+  ADD PRIMARY KEY (`IdPembelian`),
+  ADD KEY `IdSupplier` (`IdSupplier`),
+  ADD KEY `IdPengguna` (`IdPengguna`);
 
 --
 -- Indexes for table `pengguna`
@@ -342,19 +398,27 @@ ALTER TABLE `pengguna`
   ADD KEY `IdAkses` (`IdAkses`);
 
 --
--- Indexes for table `penjualan`
+-- Indexes for table `penjualan_d`
 --
-ALTER TABLE `penjualan`
+ALTER TABLE `penjualan_d`
   ADD PRIMARY KEY (`IdPenjualan`),
-  ADD KEY `IdPengguna` (`IdPengguna`),
-  ADD KEY `IdBarang` (`IdBarang`);
+  ADD KEY `IdBarang` (`IdBarang`),
+  ADD KEY `IdPengguna` (`IdPengguna`);
+
+--
+-- Indexes for table `penjualan_h`
+--
+ALTER TABLE `penjualan_h`
+  ADD PRIMARY KEY (`IdPelanggan`),
+  ADD KEY `IdPelanggan` (`IdPelanggan`),
+  ADD KEY `IdPengguna` (`IdPengguna`);
 
 --
 -- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`IdSupplier`),
-  ADD KEY `IdPembelian` (`IdPembelian`);
+  ADD KEY `IdPengguna` (`IdPengguna`);
 
 --
 -- Constraints for dumped tables
@@ -370,14 +434,21 @@ ALTER TABLE `barang`
 -- Constraints for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  ADD CONSTRAINT `pelanggan_ibfk_1` FOREIGN KEY (`IdPenjualan`) REFERENCES `penjualan` (`IdPenjualan`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `pelanggan_ibfk_1` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `pembelian`
+-- Constraints for table `pembelian_d`
 --
-ALTER TABLE `pembelian`
-  ADD CONSTRAINT `pembelian_ibfk_1` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `pembelian_ibfk_2` FOREIGN KEY (`IdBarang`) REFERENCES `barang` (`IdBarang`) ON UPDATE CASCADE;
+ALTER TABLE `pembelian_d`
+  ADD CONSTRAINT `pembelian_d_ibfk_1` FOREIGN KEY (`IdBarang`) REFERENCES `barang` (`IdBarang`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `pembelian_d_ibfk_2` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pembelian_h`
+--
+ALTER TABLE `pembelian_h`
+  ADD CONSTRAINT `pembelian_h_ibfk_1` FOREIGN KEY (`IdSupplier`) REFERENCES `supplier` (`IdSupplier`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `pembelian_h_ibfk_2` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pengguna`
@@ -386,17 +457,24 @@ ALTER TABLE `pengguna`
   ADD CONSTRAINT `pengguna_ibfk_1` FOREIGN KEY (`IdAkses`) REFERENCES `hakakses` (`IdAkses`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `penjualan`
+-- Constraints for table `penjualan_d`
 --
-ALTER TABLE `penjualan`
-  ADD CONSTRAINT `penjualan_ibfk_1` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `penjualan_ibfk_2` FOREIGN KEY (`IdBarang`) REFERENCES `barang` (`IdBarang`) ON UPDATE CASCADE;
+ALTER TABLE `penjualan_d`
+  ADD CONSTRAINT `penjualan_d_ibfk_1` FOREIGN KEY (`IdBarang`) REFERENCES `barang` (`IdBarang`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `penjualan_d_ibfk_2` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `penjualan_h`
+--
+ALTER TABLE `penjualan_h`
+  ADD CONSTRAINT `penjualan_h_ibfk_1` FOREIGN KEY (`IdPelanggan`) REFERENCES `pelanggan` (`IdPelanggan`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `penjualan_h_ibfk_2` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `supplier`
 --
 ALTER TABLE `supplier`
-  ADD CONSTRAINT `supplier_ibfk_1` FOREIGN KEY (`IdPembelian`) REFERENCES `pembelian` (`IdPembelian`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `supplier_ibfk_1` FOREIGN KEY (`IdPengguna`) REFERENCES `pengguna` (`IdPengguna`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
