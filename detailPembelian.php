@@ -112,7 +112,7 @@ $result = mysqli_query($connect, $query);
                                         <td><?php echo $row['IdPembelian']; ?></td>
                                         <td><?php echo $row['IdBarang']; ?></td>
                                         <td><?php echo $row['JumlahPembelian']; ?></td>
-                                        <td><?php echo $row['HargaJual']; ?></td>
+                                        <td><?php echo $row['HargaBeli']; ?></td>
                                         <td><?php echo $row['IdPengguna']; ?></td>
                                         <td>
                                             <a class="delete" href="hapusPembelian.php?IdBarang=<?php echo $row['IdPembelian']; ?>">Hapus</a>
