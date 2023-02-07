@@ -80,7 +80,7 @@ try {
                         </ul>
                         <ul>
                             <li>
-                                <a>
+                                <a href="dataPembelian_view.php">
                                     <i class="fas fa-receipt"></i>
                                     Daftar Pembelian
                                 </a>
