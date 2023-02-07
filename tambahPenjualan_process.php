@@ -13,9 +13,5 @@ $query2 = "INSERT INTO penjualan_d (IdPenjualan, IdBarang, JumlahPenjualan, Harg
 mysqli_query($connect, $query1);
 mysqli_query($connect, $query2);
 
-header("location: dataPenjualan.php");
-
-
-
 
 

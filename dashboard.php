@@ -22,7 +22,9 @@ try {
     echo "<script>alert('Internal Server Error')</script>";
     echo "<meta http-equiv='refresh' content='0; url=index.php'>";
 }
+
 ?>
+
 <html>
 
 <head>
@@ -120,6 +122,13 @@ try {
 
                         <div class="box-content1">
                             <div class="big">
+                            <td>
+                                <?php
+                                $terjual = "SELECT SUM(JumlahPenjualan) AS jumlah FROM penjualan_d";
+                                $hasil = mysql_query($terjual) or die (mysql_error());
+                                $t = mysql_fetch_array($hasil);
+                                echo "<b>" . number_format($t['jumlah']) . "<b>";
+                                ?></td>
                                 <span id="IdPenjualan">Barang Terjual</span>
                             </div>
                         </div>

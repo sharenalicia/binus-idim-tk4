@@ -11,7 +11,7 @@ if (empty($idpengguna)) {
     echo "<script>alert('Password belum diisi')</script>";
     echo "<meta http-equiv='refresh' content='0; url=index.php'>";
 } else {
-    $query = "SELECT * FROM pengguna WHERE IdPengguna ='$idpengguna' and Password ='$password'";
+    $query = "SELECT * FROM pengguna JOIN hakakses WHERE IdPengguna ='$idpengguna' and Password ='$password'";
     $result = $db_handle->runQuery($query);
 
     if (empty($result)) {
