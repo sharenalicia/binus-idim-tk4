@@ -2,7 +2,7 @@
 include "koneksidb.php";
 session_start();
 $nama = $_SESSION['nama'];
-$query = "SELECT * FROM penjualan_d";
+$query = "SELECT * FROM pembelian_d";
 $result = mysqli_query($connect, $query);
 ?>
 <html>
@@ -91,15 +91,15 @@ $result = mysqli_query($connect, $query);
             </header>
         
             <div class="container">
-                <h2>Detail Daftar Penjualan</h2>
+                <h2>Detail Daftar Pembelian</h2>
                     <div class="box-2">
                             <table class="content-table">
                                 <tr>
                                     <th>No</th>
-                                    <th>Id Penjualan</th>
+                                    <th>Id Pembelian</th>
                                     <th>Id Barang</th>
-                                    <th>Jumlah Penjualan</th>
-                                    <th>Harga Jual</th>
+                                    <th>Jumlah Pembelian</th>
+                                    <th>Harga Beli</th>
                                     <th>Id Pengguna</th>
                                     <th>Pengaturan</th>
                                 </tr>
@@ -109,13 +109,13 @@ $result = mysqli_query($connect, $query);
                                 ?>
                                     <tr>
                                         <td><?php echo $no++; ?></td>
-                                        <td><?php echo $row['IdPenjualan']; ?></td>
+                                        <td><?php echo $row['IdPembelian']; ?></td>
                                         <td><?php echo $row['IdBarang']; ?></td>
-                                        <td><?php echo $row['JumlahPenjualan']; ?></td>
+                                        <td><?php echo $row['JumlahPembelian']; ?></td>
                                         <td><?php echo $row['HargaJual']; ?></td>
                                         <td><?php echo $row['IdPengguna']; ?></td>
                                         <td>
-                                            <a class="delete" href="hapusPenjualan.php?IdBarang=<?php echo $row['IdPenjualan']; ?>">Hapus</a>
+                                            <a class="delete" href="hapusPembelian.php?IdBarang=<?php echo $row['IdPembelian']; ?>">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php
@@ -124,7 +124,7 @@ $result = mysqli_query($connect, $query);
                             </table>
                     </div>
                     <div class="action2">
-                        <button onclick="location.href = 'tambahPenjualan.php';">
+                        <button onclick="location.href = 'tambahPembelian.php';">
                             +Tambah Penjualan
                         </button>
                     </div>
