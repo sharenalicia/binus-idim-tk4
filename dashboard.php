@@ -66,7 +66,7 @@ try {
         window.onload = function() {
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
-                theme: "light1", // "light1", "light2", "dark1", "dark2"
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
                 title: {
                     text: "Keuntungan Penjualan"
                 },
@@ -81,12 +81,12 @@ try {
             chart.render();
             var pieChart = new CanvasJS.Chart("pieChartContainer", {
                 animationEnabled: true,
-                theme: "light1", // "light1", "light2", "dark1", "dark2"
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
                 title: {
-                    text: "Keuntungan Penjualan"
+                    text: "Ratio Penjualan per Barang"
                 },
                 axisY: {
-                    title: "Keuntungan Penjualan per Barang (IDR)"
+                    title: "Ratio Penjualan"
                 },
                 data: [{
                     type: "pie", //change type to bar, line, area, pie, etc  
@@ -175,73 +175,11 @@ try {
                 </header>
                 <div class="content">
                     <section class="content-1">
-                        <div class="box-1">
-                            <div class="box-icon1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                    <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                                </svg>
-                            </div>
+                            <div class="chart" id="chartContainer" style="height: 250px; width: 350px"></div>
+                            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-                            <div class="box-content1">
-                                <div class="big">
-                                    <span id="IdPenjualan">Barang Terjual</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-1">
-                            <div class="box-icon1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                    <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                                </svg>
-                            </div>
-
-                            <div class="box-content1">
-                                <span class="big">angkadb</span>
-                                Barang Terjual
-                            </div>
-                        </div>
-                    </section>
-                    <section class="content-2">
-                        <div class="box-2">
-                            <div class="box-icon2">
-                                <h2> Laporan Laba Rugi </h2>
-                            </div>
-
-                            <div class="box-content2">
-                                <table class="content-table">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Id Barang</th>
-                                        <th>Nama Barang</th>
-                                        <th>KeuntunganPenjua1an</th>
-                                        <th>KeuntunganSetiapBarang</th>
-                                        <th>JumlahPenjualan</th>
-                                        <th>Stok</th>
-                                    </tr>
-                                    <?php
-                                    foreach ($value as $key => $row) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $no++; ?></td>
-                                            <td><?php echo $row['IdBarang']; ?></td>
-                                            <td><?php echo $row['NamaBarang']; ?></td>
-                                            <td><?php echo $row['KeuntunganPenjua1an']; ?></td>
-                                            <td><?php echo $row['KeuntunganSetiapBarang']; ?></td>
-                                            <td><?php echo $row['JumlahPenjualan']; ?></td>
-                                            <td><?php echo $row['Stok']; ?></td>
-                                        </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </table>
-                            </div>
-                            <div class="box-content2">
-                                <div class="box-content2" id="chartContainer" style="height: 370px; width: 100%;"></div>
-                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-                                <div class="box-content2" id="pieChartContainer" style="height: 370px; width: 100%;"></div>
-                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-                            </div>
-                        </div>
+                            <div class="chart" id="pieChartContainer" style="height: 250px; width: 350px"></div>
+                            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                     </section>
                 </div>
             </main>
