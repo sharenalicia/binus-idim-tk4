@@ -4,6 +4,7 @@ include_once("DBController.php");
 session_start();
 $db_handle = new DBController();
 
+$dataPoints = array();
 $idpengguna = $_SESSION['id'];
 if (!isset($idpengguna)) {
     header('location:login.php');
@@ -23,136 +24,233 @@ try {
     echo "<meta http-equiv='refresh' content='0; url=index.php'>";
 }
 
+
+$query =
+    "SELECT
+    IdBarang,
+    NamaBarang,
+    SUM(
+        penjualan_d.HargaJual - pembelian_d.HargaBeli
+    ) AS KeuntunganPenjua1an,
+    (penjualan_d.HargaJual - Satuan) AS KeuntunganSetiapBarang,
+    SUM(
+        pembelian_d.JumlahPembelian - penjualan_d.JumlahPenjualan
+    ) AS Stok,
+    SUM(penjualan_d.JumlahPenjualan) AS JumlahPenjualan
+FROM
+    barang
+JOIN pembelian_d USING(IdBarang)
+JOIN penjualan_d USING(IdBarang)
+GROUP BY
+    (IdBarang)";
+
+try {
+    $value = $db_handle->runQuery($query);
+    $no = 1;
+    if (!empty($value)) {
+        foreach ($value as $key => $row) {
+            array_push($dataPoints, array("label" =>  $row['NamaBarang'], "y" => $row['KeuntunganSetiapBarang']));
+        }
+    }
 ?>
+    <html>
 
-<html>
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <script>
+        window.onload = function() {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light1", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: "Keuntungan Penjualan"
+                },
+                axisY: {
+                    title: "Keuntungan Penjualan per Barang (IDR)"
+                },
+                data: [{
+                    type: "column", //change type to bar, line, area, pie, etc  
+                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                }]
+            });
+            chart.render();
+            var pieChart = new CanvasJS.Chart("pieChartContainer", {
+                animationEnabled: true,
+                theme: "light1", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: "Keuntungan Penjualan"
+                },
+                axisY: {
+                    title: "Keuntungan Penjualan per Barang (IDR)"
+                },
+                data: [{
+                    type: "pie", //change type to bar, line, area, pie, etc  
+                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                }]
+            });
+            pieChart.render();
+        }
+    </script>
 
-<head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+    <body>
+        <div class="center">
+            <header class="menu">
+                <figure class="user">
+                    <div class="user-avatar">
+                        <a href="index.php">
+                            <img src="img/avatar.jpg">
+                        </a>
+                    </div>
+                    <figcaption>
+                        <?php echo $namaPengguna; ?>
+                    </figcaption>
+                </figure>
+                <nav>
+                    <section class="barang">
+                        <h3>Barang</h3>
+                        <ul>
+                            <li>
+                                <a href="dataBarang.php">
+                                    <i class="fas fa-tag"></i>
+                                    Daftar Barang
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="penjualan">
+                        <h3>Penjualan</h3>
 
-<body>
-    <div class="center">
-        <header class="menu">
-            <figure class="user">
-                <div class="user-avatar">
-                    <a href="index.php">
-                        <img src="img/avatar.jpg">
-                    </a>
-                </div>
-                <figcaption>
-                    <?php echo $namaPengguna; ?>
-                </figcaption>
-            </figure>
-            <nav>
-                <section class="barang">
-                    <h3>Barang</h3>
-                    <ul>
-                        <li>
-                            <a href="dataBarang.php">
-                                <i class="fas fa-tag"></i>
-                                Daftar Barang
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-                <section class="penjualan">
-                    <h3>Penjualan</h3>
-
-                    <ul>
-                        <li>
-                            <a href="dataPelanggan.php">
-                                <i class="fas fa-user"></i>
-                                Daftar Pelanggan
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="dataPenjualan.php">
-                                <i class="fas fa-cash-register"></i>
-                                Daftar Penjualan
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-                <section class="penjualan">
-                    <h3>Pembelian</h3>
-                    <ul>
-                        <li>
-                            <a href="dataSupplier.php">
-                                <i class="fas fa-store"></i>
-                                Daftar Supplier
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="dataPembelian.php">
-                                <i class="fas fa-receipt"></i>
-                                Daftar Pembelian
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </nav>
-        </header>
-
-        <main class="content-wrap">
-            <header class="content-head">
-                <h1>Dashboard</h1>
-                <div class="action">
-                    <button onclick="location.href = 'logout.php';">
-                        Sign out
-                    </button>
-                </div>
+                        <ul>
+                            <li>
+                                <a href="dataPelanggan.php">
+                                    <i class="fas fa-user"></i>
+                                    Daftar Pelanggan
+                                </a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="dataPenjualan.php">
+                                    <i class="fas fa-cash-register"></i>
+                                    Daftar Penjualan
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="penjualan">
+                        <h3>Pembelian</h3>
+                        <ul>
+                            <li>
+                                <a href="dataSupplier.php">
+                                    <i class="fas fa-store"></i>
+                                    Daftar Supplier
+                                </a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="dataPembelian.php">
+                                    <i class="fas fa-receipt"></i>
+                                    Daftar Pembelian
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
             </header>
-            <div class="content">
-                <section class="content-1">
-                    <div class="box-1">
-                        <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                            </svg>
-                        </div>
 
-                        <div class="box-content1">
-                            <div class="big">
-                                <span id="IdPenjualan">Barang Terjual</span>
+            <main class="content-wrap">
+                <header class="content-head">
+                    <h1>Dashboard</h1>
+                    <div class="action">
+                        <button onclick="location.href = 'logout.php';">
+                            Sign out
+                        </button>
+                    </div>
+                </header>
+                <div class="content">
+                    <section class="content-1">
+                        <div class="box-1">
+                            <div class="box-icon1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
+                                    <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
+                                </svg>
+                            </div>
+
+                            <div class="box-content1">
+                                <div class="big">
+                                    <span id="IdPenjualan">Barang Terjual</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-icon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
-                                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
-                            </svg>
-                        </div>
+                        <div class="box-1">
+                            <div class="box-icon1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
+                                    <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
+                                </svg>
+                            </div>
 
-                        <div class="box-content1">
-                            <span class="big">angkadb</span>
-                            Barang Terjual
+                            <div class="box-content1">
+                                <span class="big">angkadb</span>
+                                Barang Terjual
+                            </div>
                         </div>
-                    </div>
-                </section>
-                <section class="content-2">
-                    <div class="box-2">
-                        <div class="box-icon2">
-                            <h2> Laporan Laba Rugi </h2>
-                        </div>
+                    </section>
+                    <section class="content-2">
+                        <div class="box-2">
+                            <div class="box-icon2">
+                                <h2> Laporan Laba Rugi </h2>
+                            </div>
 
-                        <div class="box-content2">
-                            <h2> angka db </h2>
+                            <div class="box-content2">
+                                <table class="content-table">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Id Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>KeuntunganPenjua1an</th>
+                                        <th>KeuntunganSetiapBarang</th>
+                                        <th>JumlahPenjualan</th>
+                                        <th>Stok</th>
+                                    </tr>
+                                    <?php
+                                    foreach ($value as $key => $row) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $no++; ?></td>
+                                            <td><?php echo $row['IdBarang']; ?></td>
+                                            <td><?php echo $row['NamaBarang']; ?></td>
+                                            <td><?php echo $row['KeuntunganPenjua1an']; ?></td>
+                                            <td><?php echo $row['KeuntunganSetiapBarang']; ?></td>
+                                            <td><?php echo $row['JumlahPenjualan']; ?></td>
+                                            <td><?php echo $row['Stok']; ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </table>
+                            </div>
+                            <div class="box-content2">
+                                <div class="box-content2" id="chartContainer" style="height: 370px; width: 100%;"></div>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                                <div class="box-content2" id="pieChartContainer" style="height: 370px; width: 100%;"></div>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                            </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-        </main>
-    </div>
-</body>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </body>
 
-</html>
+    </html>
+<?php
+} catch (Exception $e) {
+    echo "<script>alert('Internal Server Error')</script>";
+    echo "<meta http-equiv='refresh' content='0; url=dataBarang.php'>";
+}
