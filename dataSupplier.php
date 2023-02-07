@@ -101,7 +101,7 @@ $result = mysqli_query($connect, $query);
                                     <th>Nama Supplier</th>
                                     <th>Alamat</th>
                                     <th>No Hp</th>
-                                    <th>Id Pembelian</th>
+                                    <th>Id Pengguna</th>
                                     <th>Pengaturan</th>
                                 </tr>
                                 <?php
@@ -114,9 +114,9 @@ $result = mysqli_query($connect, $query);
                                         <td><?php echo $row['NamaSupplier']; ?></td>
                                         <td><?php echo $row['Alamat']; ?></td>
                                         <td><?php echo $row['NoHp']; ?></td>
-                                        <td><?php echo $row['IdPembelian']; ?></td>
+                                        <td><?php echo $row['IdPengguna']; ?></td>
                                         <td>
-                                            <a class="edit2" href="editSupplier.php?IdSupplier=<?php echo $row['IdSupplier']; ?>&IdPembelian=<?php echo $row['IdPembelian']; ?>">Edit</a>
+                                            <a class="edit2" href="editSupplier.php?IdSupplier=<?php echo $row['IdSupplier']; ?>&IdPengguna=<?php echo $row['IdPengguna']; ?>">Edit</a>
                                             <a class="delete2" href="hapusSupplier.php?IdSupplier=<?php echo $row['IdSupplier']; ?>">Hapus</a>
                                         </td>
                                     </tr>
