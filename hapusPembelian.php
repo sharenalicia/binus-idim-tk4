@@ -1,9 +1,9 @@
 <?php
 include_once("DBController.php");
 $db_handle = new DBController();
-$IdPembelian = $_GET['IdIdPembelian'];
+$IdPembelian = $_GET['IdPembelian'];
 
-if (!empty($IdIdPembelian)) {
+if (!empty($IdPembelian)) {
     $query = "DELETE FROM pembelian_d WHERE `pembelian_d`.`IdPembelian` = '" . $_GET["IdPembelian"] . "'";
     $query2 = "DELETE FROM pembelian_h WHERE `pembelian_h`.`IdPembelian` = '" . $_GET["IdPembelian"] . "'";
     try {
