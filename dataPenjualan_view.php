@@ -91,7 +91,7 @@ $result = mysqli_query($connect, $query);
             </header>
         
             <div class="container">
-                <h2>Daftar Barang</h2>
+                <h2>Daftar Penjualan</h2>
                     <div class="box-2">
                             <table class="content-table">
                                 <tr>

@@ -92,7 +92,7 @@ $result = mysqli_query($connect, $query);
             </header>
 
             <div class="container">
-                <h2>Data Supplier</h2>
+                <h2>Daftar Supplier</h2>
                     <div class="box-3">
                             <table class="content-table2">
                                 <tr>

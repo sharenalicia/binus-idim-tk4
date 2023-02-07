@@ -7,8 +7,8 @@ $IdPenjualan = $_GET['IdPenjualan'];
 $query = "SELECT * FROM pelanggan WHERE IdPelanggan='$id'";
 $result = mysqli_query($connect, $query);
 
-$query = "SELECT * FROM penjualan";
-$result2 = mysqli_query($connect, $query);
+$query2 = "SELECT IdPengguna FROM pengguna";
+$result2 = mysqli_query($connect, $query2);
 ?>
 <html>
 
@@ -119,16 +119,13 @@ $result2 = mysqli_query($connect, $query);
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Id Penjualan</td>
+                                            <td>Id Pengguna</td>
                                             <td>
-                                                <select name="IdPenjualan" class="kolom">
+                                                <select name="IdPengguna" class="kolom">
                                                     <?php
                                                     $no = 1;
                                                     while ($row = mysqli_fetch_array($result2)) {
-                                                        if ($row['IdPenjualan'] == $IdPenjualan) {
-                                                            echo "<option selected value='" . $row['IdPenjualan'] . "'>" . $row['IdPenjualan'] . "</option>";
-                                                        } else
-                                                            echo "<option value='" . $row['IdPenjualan'] . "'>" . $row['IdPenjualan'] . "</option>";
+                                                        echo "<option value='" . $row['IdPengguna'] . "'>" . $row['IdPengguna'] . "</option>";
                                                     }
                                                     ?>
                                                 </select>

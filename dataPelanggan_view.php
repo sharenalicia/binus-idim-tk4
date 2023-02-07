@@ -100,7 +100,7 @@ $result = mysqli_query($connect, $query);
                                     <th>Nama Pelanggan</th>
                                     <th>Alamat</th>
                                     <th>No Hp</th>
-                                    <th>Pengaturan</th>
+                                    <th>IdPengguna</th>
                                 </tr>
                                 <?php
                                 $no = 1;
@@ -112,6 +112,7 @@ $result = mysqli_query($connect, $query);
                                         <td><?php echo $row['NamaPelanggan']; ?></td>
                                         <td><?php echo $row['Alamat']; ?></td>
                                         <td><?php echo $row['NoHp']; ?></td>
+                                        <td><?php echo $row['IdPengguna']; ?></td>
                                     </tr>
                                 <?php
                                 }
