@@ -175,10 +175,10 @@ try {
                 </header>
                 <div class="content">
                     <section class="content-1">
-                            <div class="chart" id="chartContainer" style="height: 250px; width: 350px"></div>
+                            <div class="chart" id="chartContainer" style="height: 300px; width: 450px"></div>
                             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-                            <div class="chart" id="pieChartContainer" style="height: 250px; width: 350px"></div>
+                            <div class="chart" id="pieChartContainer" style="height: 300px; width: 350px"></div>
                             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                     </section>
                 </div>
