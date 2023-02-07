@@ -122,13 +122,6 @@ try {
 
                         <div class="box-content1">
                             <div class="big">
-                            <td>
-                                <?php
-                                $terjual = "SELECT SUM(JumlahPenjualan) AS jumlah FROM penjualan_d";
-                                $hasil = mysql_query($terjual) or die (mysql_error());
-                                $t = mysql_fetch_array($hasil);
-                                echo "<b>" . number_format($t['jumlah']) . "<b>";
-                                ?></td>
                                 <span id="IdPenjualan">Barang Terjual</span>
                             </div>
                         </div>
