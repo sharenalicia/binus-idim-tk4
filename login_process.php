@@ -3,6 +3,8 @@ include_once("DBController.php");
 $db_handle = new DBController();
 $idpengguna = $_POST['idpengguna'];
 $password = $_POST['password'];
+$idakses = $_POST['idakses'];
+
 
 if (empty($idpengguna)) {
     echo "<script>alert('Id Pengguna belum diisi')</script>";
